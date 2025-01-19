@@ -22,3 +22,7 @@ vim.api.nvim_create_autocmd("TextChanged", {
     vim.cmd("echo ''")
   end,
 })
+
+vim.opt.wrap = true
+vim.g.autoformat = false
+

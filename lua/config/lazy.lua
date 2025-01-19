@@ -18,7 +18,10 @@ vim.opt.rtp:prepend(lazypath)
 vim.g.ai_cmp = true
 
 --diagnostics
-vim.api.nvim_set_hl(0, "DiagnosticUnderlineError", { sp = "#CC7070", undercurl = true })
+-- vim.api.nvim_set_hl(0, "DiagnosticUnderlineError", { sp = "#CC7070", undercurl = true })
+
+--enable wordwrap
+-- vim.opt.wrap = true
 
 -- removes statuses and feedback in command line
 vim.opt.laststatus = 0
@@ -36,6 +39,8 @@ vim.filetype.add({ extension = { http = "http" } })
 vim.filetype.add({ extension = { razor = "razor" } })
 vim.filetype.add({ extension = { cshtml = "razor" } })
 
+vim.api.nvim_set_hl(0, "NeoTreeGitAdded", { fg = "#225500" })
+
 require("lazy").setup({
   spec = {
     -- add LazyVim and import its plugins
@@ -52,7 +57,7 @@ require("lazy").setup({
     version = false, -- always use the latest git commit
     -- version = "*", -- try installing the latest stable version for plugins that support semver
   },
-  install = { colorscheme = { "tokyonight", "habamax" } },
+  -- install = { colorscheme = { "tokyonight", "habamax" } },
   checker = {
     enabled = true, -- check for plugin updates periodically
     notify = false, -- notify on update
