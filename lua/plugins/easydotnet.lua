@@ -1,34 +1,41 @@
--- lazy.nvim
 return {
   "GustavEikaas/easy-dotnet.nvim",
-  dependencies = { "nvim-lua/plenary.nvim", "nvim-telescope/telescope.nvim" },
+  dependencies = {
+    "nvim-lua/plenary.nvim",
+    "nvim-telescope/telescope.nvim",
+  },
   config = function()
+    local function get_sdk_path()
+      -- If you also want to differentiate between Windows/WSL/Linux, you can
+      -- check 'require("easy-dotnet.extensions").isWindows()' or 'isWsl()'
+      -- For simplicity here, we're just returning the Linux path.
+      if require("easy-dotnet.extensions").isWindows() then
+        return "C:\\Program Files\\dotnet\\sdk\\9.0.101"
+      end
+      return "/usr/lib/dotnet/sdk/9.0.101"
+    end
+
     local function get_secret_path(secret_guid)
       local path = ""
       local home_dir = vim.fn.expand("~")
       if require("easy-dotnet.extensions").isWindows() then
-        local secret_path = home_dir
-          .. "\\AppData\\Roaming\\Microsoft\\UserSecrets\\"
-          .. secret_guid
-          .. "\\secrets.json"
-        path = secret_path
+        -- Windows path
+        path = home_dir .. "\\AppData\\Roaming\\Microsoft\\UserSecrets\\" .. secret_guid .. "\\secrets.json"
       else
-        local secret_path = home_dir .. "/.microsoft/usersecrets/" .. secret_guid .. "/secrets.json"
-        path = secret_path
+        -- Linux/macOS/WSL path
+        path = home_dir .. "/.microsoft/usersecrets/" .. secret_guid .. "/secrets.json"
       end
       return path
     end
 
     local dotnet = require("easy-dotnet")
-    -- Options are not required
     dotnet.setup({
-      --Optional function to return the path for the dotnet sdk (e.g C:/ProgramFiles/dotnet/sdk/8.0.0)
+      -- Point to a specific SDK version
       get_sdk_path = get_sdk_path,
-      ---@type TestRunnerOptions
+
       test_runner = {
-        ---@type "split" | "float" | "buf"
         viewmode = "float",
-        enable_buffer_test_execution = true, --Experimental, run tests directly from buffer
+        enable_buffer_test_execution = true, -- Experimental
         noBuild = true,
         noRestore = true,
         icons = {
@@ -44,43 +51,44 @@ return {
           package = "",
         },
         mappings = {
-          run_test_from_buffer = { lhs = "<leader>r", desc = "run test from buffer" },
-          filter_failed_tests = { lhs = "<leader>fe", desc = "filter failed tests" },
-          debug_test = { lhs = "<leader>d", desc = "debug test" },
-          go_to_file = { lhs = "g", desc = "got to file" },
-          run_all = { lhs = "<leader>R", desc = "run all tests" },
-          run = { lhs = "<leader>r", desc = "run test" },
-          peek_stacktrace = { lhs = "<leader>p", desc = "peek stacktrace of failed test" },
-          expand = { lhs = "o", desc = "expand" },
-          expand_node = { lhs = "E", desc = "expand node" },
-          expand_all = { lhs = "-", desc = "expand all" },
-          collapse_all = { lhs = "W", desc = "collapse all" },
-          close = { lhs = "q", desc = "close testrunner" },
-          refresh_testrunner = { lhs = "<C-r>", desc = "refresh testrunner" },
+          -- run_test_from_buffer = { lhs = "<leader>r", desc = "run test from buffer" },
+          -- filter_failed_tests = { lhs = "<leader>fe", desc = "filter failed tests" },
+          -- debug_test = { lhs = "<leader>d", desc = "debug test" },
+          -- go_to_file = { lhs = "g", desc = "go to file" },
+          -- run_all = { lhs = "<leader>R", desc = "run all tests" },
+          -- run = { lhs = "<leader>r", desc = "run test" },
+          -- peek_stacktrace = { lhs = "<leader>p", desc = "peek stacktrace of failed test" },
+          -- expand = { lhs = "o", desc = "expand" },
+          -- expand_node = { lhs = "E", desc = "expand node" },
+          -- expand_all = { lhs = "-", desc = "expand all" },
+          -- collapse_all = { lhs = "W", desc = "collapse all" },
+          -- close = { lhs = "q", desc = "close testrunner" },
+          -- refresh_testrunner = { lhs = "<C-r>", desc = "refresh testrunner" },
         },
-        --- Optional table of extra args e.g "--blame crash"
         additional_args = {},
       },
+
       ---@param action "test" | "restore" | "build" | "run"
-      terminal = function(path, action)
+      terminal = function(path, action, args)
         local commands = {
           run = function()
-            return "dotnet run --project " .. path
+            return string.format("dotnet run --project %s %s", path, args)
           end,
           test = function()
-            return "dotnet test " .. path
+            return string.format("dotnet test %s %s", path, args)
           end,
           restore = function()
-            return "dotnet restore " .. path
+            return string.format("dotnet restore %s %s", path, args)
           end,
           build = function()
-            return "dotnet build " .. path
+            return string.format("dotnet build %s %s", path, args)
           end,
         }
         local command = commands[action]() .. "\r"
         vim.cmd("vsplit")
         vim.cmd("term " .. command)
       end,
+
       secrets = {
         path = get_secret_path,
       },
@@ -94,9 +102,18 @@ return {
       dotnet.secrets()
     end, {})
 
-    -- Example keybinding
-    vim.keymap.set("n", "<C-p>", function()
-      dotnet.run_project()
-    end)
+    -- Example keybindings
+    -- vim.keymap.set("n", "<leader>rp", function()
+    --   dotnet.run_project()
+    -- end, { desc = "Run .NET project" })
+    -- vim.keymap.set("n", "<leader>tb", function()
+    --   require("easy-dotnet").run_test_from_buffer()
+    -- end, { desc = "Run tests from buffer" })
+    -- vim.keymap.set("n", "<leader>db", function()
+    --   dotnet.debug_buffer()
+    -- end, { desc = "Debug tests in buffer" })
+    -- vim.keymap.set("n", "<leader>rf", function()
+    --   dotnet.refresh()
+    -- end, { desc = "Refresh .NET project" })
   end,
 }

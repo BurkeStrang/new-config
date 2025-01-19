@@ -5,7 +5,7 @@ return {
     "mason.nvim",
     { "williamboman/mason-lspconfig.nvim", config = function() end },
     "seblj/roslyn.nvim",
-    { "tris203/rzls.nvim", branch = "razor_ts" },
+    { "tris203/rzls.nvim", branch = "main" },
   },
   opts = function()
     ---@class PluginLspOpts
@@ -71,7 +71,7 @@ return {
       servers = {
         angularls = {},
         bicep = {},
-        -- gopls = {},
+        gopls = {},
         jsonls = {},
         lua_ls = {
           -- mason = false, -- set to false if you don't want this server to be installed with mason
@@ -119,12 +119,13 @@ return {
         -- },
         -- cssls = {},
         jdtls = {},
-        -- tailwindcss = {
-        --   -- root_dir = function(...)
-        --   --   return require("lspconfig.util").root_pattern(".git")(...)
-        --   -- end,
-        -- },
+        tailwindcss = {
+          -- root_dir = function(...)
+          --   return require("lspconfig.util").root_pattern(".git")(...)
+          -- end,
+        },
         eslint = {},
+        terraformls = {},
         ts_ls = {
           -- root_dir = function(...)
           --   return require("lspconfig.util").root_pattern(".git")(...)
@@ -165,6 +166,7 @@ return {
             },
           },
         },
+        zls = {},
       },
       -- you can do any additional lsp server setup here
       -- return true if you don't want this server to be setup with lspconfig
@@ -193,8 +195,10 @@ return {
             ),
           },
           config = {
-            on_attach = on_attach,
-            capabilities = capabilities,
+            cmd = {}, -- this gets overridden
+            -- get executable from mason
+            on_attach = nil, --lazyvim provides these in autocomnds
+            capabilities = nil, --lazyvim provides these in autocomnds
             handlers = require("rzls.roslyn_handlers"),
             settings = {
               ["csharp|inlay_hints"] = {

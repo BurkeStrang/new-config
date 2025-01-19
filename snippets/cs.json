@@ -1,0 +1,165 @@
+{
+  "comment": {
+    "scope": "csharp",
+    "prefix": "cmntl",
+    "body": [
+      "/// <summary>",
+      "/// ${1:What it does.}",
+      "/// </summary>",
+      "/// <param name=\"${3:parameterName}\">${4:Parameter description.}</param>",
+      "/// <returns>${2:Type and description of the returned object.}</returns>",
+      "/// <example>${5:Write me later.}</example>$0"
+    ],
+    "description": "A C# comment with description, parameters, return, and example."
+  },
+  "<c>": {
+    "scope": "csharp",
+    "prefix": "<c>",
+    "body": [
+      "<c>${1:text.}$0</c>"
+    ],
+    "description": "For small inline code fragments. For multiple lines of code, use <code>."
+  },
+  "<code>": {
+    "scope": "csharp",
+    "prefix": "<code>",
+    "body": [
+      "<code>${1:source code or program output.}$0</code>"
+    ],
+    "description": "Used to set lines of source code or program output in a distinct font. For small inline code, use <c>."
+  },
+  "<example>": {
+    "scope": "csharp",
+    "prefix": "<example>",
+    "body": [
+      "<example>${1:description.}$0</example>"
+    ],
+    "description": "Allows example code within a comment, specifying how a method or other member might be used."
+  },
+  "<exception>": {
+    "scope": "csharp",
+    "prefix": "<exception>",
+    "body": [
+      "<exception cref=\"${1:ExceptionName}\">${2:description.}$0</exception>"
+    ],
+    "description": "Documents exceptions a method can throw. `cref` is the fully qualified exception type."
+  },
+  "<include>": {
+    "scope": "csharp",
+    "prefix": "<include>",
+    "body": [
+      "<include file=\"${1:filename}\" path=\"${2:xpath}\"/>$0"
+    ],
+    "description": "Includes documentation from an external XML document. Self-closing tag."
+  },
+  "<list>": {
+    "scope": "csharp",
+    "prefix": "<list>",
+    "body": [
+      "<list type=\"bullet\">",
+      "  <item>",
+      "    <description>${1:Item 1.}</description>",
+      "    <description>${2:Item 2.}</description>",
+      "    <description>${3:Item 3.}$0</description>",
+      "  </item>",
+      "</list>"
+    ],
+    "description": "Creates a list or table of items. Optional <listheader> blocks for table or definition lists."
+  },
+  "<para>": {
+    "scope": "csharp",
+    "prefix": "<para>",
+    "body": [
+      "<para>${1:content.}$0</para>"
+    ],
+    "description": "Adds a paragraph. Typically used inside other tags (<summary>, <returns>, etc.)."
+  },
+  "<param>": {
+    "scope": "csharp",
+    "prefix": "<param>",
+    "body": [
+      "<param name=\"${1:name}\">${2:description.}$0</param>"
+    ],
+    "description": "Documents a parameter of a method, constructor, or indexer."
+  },
+  "<paramref>": {
+    "scope": "csharp",
+    "prefix": "<paramref>",
+    "body": [
+      "<paramref name=\"${1:name}\"/>$0"
+    ],
+    "description": "Highlights a parameter name in the generated documentation."
+  },
+  "<permission>": {
+    "scope": "csharp",
+    "prefix": "<permission>",
+    "body": [
+      "<permission cref=\"${1:member}\">${2:description.}$0</permission>"
+    ],
+    "description": "Documents the security accessibility of a member."
+  },
+  "<remarks>": {
+    "scope": "csharp",
+    "prefix": "<remarks>",
+    "body": [
+      "<remarks>${1:description.}$0</remarks>"
+    ],
+    "description": "Specifies additional information about a type or member."
+  },
+  "<returns>": {
+    "scope": "csharp",
+    "prefix": "<returns>",
+    "body": [
+      "<returns>${1:Type and description of the returned object.}$0</returns>"
+    ],
+    "description": "Documents the return value of a method."
+  },
+  "<see>": {
+    "scope": "csharp",
+    "prefix": "<see>",
+    "body": [
+      "<see cref=\"${1:member}\" href=\"${2:url}\" langword=\"${3:keyword}\"/>$0"
+    ],
+    "description": "Creates an inline link to another member. Use <seealso> for references in a See Also section."
+  },
+  "<seealso>": {
+    "scope": "csharp",
+    "prefix": "<seealso>",
+    "body": [
+      "<seealso cref=\"${1:member}\" href=\"${2:url}\"/>$0"
+    ],
+    "description": "Creates a link for the See Also section. Use <see> for inline references."
+  },
+  "<summary>": {
+    "scope": "csharp",
+    "prefix": "<summary>",
+    "body": [
+      "<summary>${1:description.}$0</summary>"
+    ],
+    "description": "Describes a type or a member of a type. Use <remarks> for additional details."
+  },
+  "<typeparam>": {
+    "scope": "csharp",
+    "prefix": "<typeparam>",
+    "body": [
+      "<typeparam name=\"${1:name}\">${2:description.}$0</typeparam>"
+    ],
+    "description": "Describes a type parameter for a generic type or method."
+  },
+  "<typeparamref>": {
+    "scope": "csharp",
+    "prefix": "<typeparamref>",
+    "body": [
+      "<typeparamref name=\"${1:typename}\"/>$0"
+    ],
+    "description": "Highlights a type parameter name in the generated documentation."
+  },
+  "<value>": {
+    "scope": "csharp",
+    "prefix": "<value>",
+    "body": [
+      "<value>${1:description.}$0</value>"
+    ],
+    "description": "Describes a property in the documentation."
+  }
+}

@@ -12,7 +12,7 @@ return {
       lualine_a = {
         {
           "branch",
-          color = { fg = "#225500" }, -- light green
+          color = { fg = "#4B4F53" },
         },
       },
       lualine_b = {},
@@ -20,14 +20,21 @@ return {
         {
           "filename",
           path = 1,
-          color = { fg = "#225555" }, -- light teal
+          color = { fg = "#225555" },
         },
       },
       lualine_x = {},
       lualine_y = {
         {
+          "diff",
+          symbols = { added = " ", modified = " ", removed = " " },
+          color_added = { fg = "#1CA191" },
+          color_modified = { fg = "#0099CC" },
+          color_removed = { fg = "#CC7070" },
+        },
+        {
           "progress",
-          color = { fg = "#225500" }, -- light green
+          color = { fg = "#4B4F53" },
         },
       },
       lualine_z = {
@@ -35,7 +42,7 @@ return {
           function()
             return os.date("%I:%M %p")
           end,
-          color = { fg = "#225555" }, -- lightl teal
+          color = { fg = "#225555" },
         },
       },
     },

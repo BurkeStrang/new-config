@@ -28,6 +28,12 @@ return {
             action = ":lua Snacks.dashboard.pick('oldfiles')",
           },
           {
+            icon = " ",
+            key = "d",
+            desc = " Recent in Dir",
+            action = ":lua Snacks.dashboard.pick('oldfiles', {cwd = vim.fn.getcwd()})",
+          },
+          {
             icon = " ",
             key = "c",
             desc = " Config         ",

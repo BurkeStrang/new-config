@@ -10,16 +10,16 @@ return {
 
       opts.theme = {
         colors = {
-          fg = "#6C9EC8",
-          blue = "#0099CC",
-          cyan = "#5AC9C9",
-          green = "#1CA191",
-          orange = "#009090",
-          yellow = "#C0AA60",
-          red = "#CC7070",
-          pink = "#8F65B4",
-          purple = "#9370DB",
-          magenta = "#4C8D8B",
+           fg = "#4C9EC8", -- Light Blue
+           blue = "#0099CC", -- Bright Blue
+           cyan = "#5AC9C9", -- Light Cyan
+           green = "#1CA191", -- Teal Green
+           orange = "#009090", -- Dark Cyan
+           yellow = "#C0AA60", -- Mustard Yellow
+           red = "#CC7070", -- Light Red
+           pink = "#8F65B4", -- Lavender
+           purple = "#9370DB", -- Medium Purple
+           magenta = "#4C8D8B", -- Dark Teal
         },
 
         highlight = {},
@@ -39,10 +39,24 @@ return {
             DiagnosticInfo = { fg = colors.blue },
             DiagnosticHint = { fg = colors.cyan },
 
-            -- DiagnosticUnderlineError = { sp = colors.red, undercurl = true },
-            -- DiagnosticUnderlineWarn = { sp = colors.yellow, undercurl = true },
-            -- DiagnosticUnderlineInfo = { sp = colors.blue, undercurl = true },
-            -- DiagnosticUnderlineHint = { sp = colors.cyan, undercurl = true },
+            -- NeoTree Git Highlight Groups
+            NeoTreeGitAdded = { fg = colors.green },
+            NeoTreeGitUnstaged = { fg = colors.green },
+            NeoTreeGitModified = { fg = colors.blue },
+            NeoTreeGitDeleted = { fg = colors.red },
+            NeoTreeGitRenamed = { fg = colors.pink },
+            NeoTreeGitUnmerged = { fg = colors.red },
+            NeoTreeGitIgnored = { fg = colors.gray },
+            NeoTreeGitUntracked = { fg = colors.green },
+
+            -- Gitsigns Highlight Groups
+            GitSignsAdd = { fg = colors.green },
+            GitSignsChange = { fg = colors.blue },
+            GitSignsDelete = { fg = colors.red },
+
+            -- NeoTree Folder Highlight Group
+            NeoTreeDirectoryName = { fg = colors.purple },
+            NeoTreeDirectoryIcon = { fg = colors.purple },
           }
         end,
       }

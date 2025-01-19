@@ -14,11 +14,13 @@ return {
         hide_gitignored = false,
       },
     },
-    git_status = {
-      added = {
-        highlight = "NeoTreeGitAdded",
-      },
-    },
+    -- git_status = {
+    --   added = {
+    --     highlight = "NeoTreeGitAdded",
+    --   },
+    --   unstaged = {
+    --     highlight = "NeoTreeGitUnstaged",
+    --   },
+    -- },
   },
 }
-

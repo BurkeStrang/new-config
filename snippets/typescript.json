@@ -1,0 +1,257 @@
+{
+  "comment": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "cmntl",
+    "body": [
+      "/**",
+      " * ${1:What it does.}",
+      " *",
+      " * @param ${3:name} ${4:Parameter description.}",
+      " * @returns ${2:Type and description of the returned object.}",
+      " *",
+      " * @example",
+      " * ```",
+      " * ${5:Write me later.}$0",
+      " * ```",
+      " */"
+    ],
+    "description": "A full TSDoc comment with description, parameters, return, and example."
+  },
+  "comment simple": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "cmnts",
+    "body": [
+      "/**",
+      " * ${1:Comment.}$0",
+      " */"
+    ],
+    "description": "A simple TSDoc comment."
+  },
+  "alpha": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "@alpha",
+    "body": ["@alpha$0"],
+    "description": "This tag can be used to indicate that the associated member is intended to eventually be used by third-party developers but is not yet stable enough to conform to semantic versioning requirements."
+  },
+  "beta": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "@beta",
+    "body": ["@beta$0"],
+    "description": "This tag can be used to indicate that the associated member is intended to eventually be used by third-party developers but is not yet stable enough to conform to semantic versioning requirements."
+  },
+  "category": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "@category",
+    "body": ["@category$0"],
+    "description": "The @category tag can be used to place related API items under a common heading in the index. May be specified multiple times."
+  },
+  "defaultValue": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "@defaultValue",
+    "body": ["@defaultValue$0"],
+    "description": "The @defaultValue tag documents the default value for an accessor or property."
+  },
+  "deprecated": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "@deprecated",
+    "body": ["@deprecated$0"],
+    "description": "Indicates that a declaration should not be used and may be removed in a future release."
+  },
+  "enum": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "@enum",
+    "body": ["@enum$0"],
+    "description": "If present on an object with string or number literal values, TypeDoc converts the variable to an enumeration."
+  },
+  "event": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "@event",
+    "body": ["@event$0"],
+    "description": "Marks a reflection as belonging in the 'Events' group."
+  },
+  "eventProperty": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "@eventProperty",
+    "body": ["@eventProperty$0"],
+    "description": "Also marks a reflection as belonging in the 'Events' group."
+  },
+  "example": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "@example",
+    "body": [
+      "@example",
+      "* ```",
+      "* ${1:write me later.}$0",
+      "* ```"
+    ],
+    "description": "Indicates that the following text is an example of how to use this function."
+  },
+  "experimental": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "@experimental",
+    "body": ["@experimental$0"],
+    "description": "Indicates that the associated member is not yet stable enough to conform to semantic versioning requirements."
+  },
+  "group": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "@group",
+    "body": ["@group$0"],
+    "description": "Place reflections under a common header in a page's index. May be specified multiple times."
+  },
+  "ignore": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "@ignore",
+    "body": ["@ignore$0"],
+    "description": "Equivalent to the @hidden JSDoc tag. Reflections marked with @ignore are removed from docs."
+  },
+  "inheritDoc": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "@inheritDoc",
+    "body": ["@inheritDoc$0"],
+    "description": "Copies documentation from another reflection. Form: {@inheritDoc ref}."
+  },
+  "interface": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "@interface",
+    "body": ["@interface$0"],
+    "description": "If present on a type alias, converts it to an interface."
+  },
+  "internal": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "@internal",
+    "body": ["@internal$0"],
+    "description": "Indicates a reflection is not intended for public usage. Use --excludeInternal to remove from docs."
+  },
+  "label": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "@label",
+    "body": ["@label$0"],
+    "description": "Gives an overloaded signature a name to reference via a declaration reference."
+  },
+  "link": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "@link",
+    "body": ["@link$0"],
+    "description": "Creates a link to another documented declaration: {@link myDeclaration}."
+  },
+  "module": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "@module",
+    "body": ["@module$0"],
+    "description": "Marks a comment as referring to a file rather than the following declaration. Optionally rename a module."
+  },
+  "overload": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "@overload",
+    "body": ["@overload$0"],
+    "description": "Used in JS projects to declare overloads since TS 5.0. Often removed with --excludeTags."
+  },
+  "override": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "@override",
+    "body": ["@override$0"],
+    "description": "TypeDoc parses @override for TSDoc compatibility, but does not attach special meaning."
+  },
+  "packageDocumentation": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "@packageDocumentation",
+    "body": ["@packageDocumentation$0"],
+    "description": "Marks a comment as referring to a file rather than a declaration."
+  },
+  "param": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "@param",
+    "body": ["@param$0"],
+    "description": "Documents a parameter of a function or method."
+  },
+  "private": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "@private",
+    "body": ["@private$0"],
+    "description": "Overrides visibility of a reflection to private. Might be removed in a future release."
+  },
+  "privateRemarks": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "@privateRemarks",
+    "body": ["@privateRemarks$0"],
+    "description": "Includes documentation that should not appear in the generated API reference."
+  },
+  "property": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "@property",
+    "body": ["@property$0"],
+    "description": "Adds a comment to a child reflection. Useful for @namespace or @interface members."
+  },
+  "protected": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "@protected",
+    "body": ["@protected$0"],
+    "description": "Overrides visibility of a reflection to protected. Might be removed in a future release."
+  },
+  "public": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "@public",
+    "body": ["@public$0"],
+    "description": "Overrides visibility of a reflection to public. Does not strictly conform to TSDoc specification."
+  },
+  "readonly": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "@readonly",
+    "body": ["@readonly$0"],
+    "description": "Documents that a reflection should be non-writable, even if TypeScript sees it as writable."
+  },
+  "remarks": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "@remarks",
+    "body": ["@remarks$0"],
+    "description": "Separates the summary section from additional details. Only one @remarks block per comment."
+  },
+  "returns": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "@returns",
+    "body": ["@returns$0"],
+    "description": "Documents the return value of a function. Only one @returns tag should be present in a comment."
+  },
+  "satisfies": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "@satisfies",
+    "body": ["@satisfies$0"],
+    "description": "Recognized for parity with TypeScript 5.0's @satisfies JSDoc."
+  },
+  "sealed": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "@sealed",
+    "body": ["@sealed$0"],
+    "description": "TypeDoc parses @sealed for TSDoc compatibility, but no special meaning is attached."
+  },
+  "see": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "@see",
+    "body": ["@see$0"],
+    "description": "Creates a list of references for other resources related to this export."
+  },
+  "template": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "@template",
+    "body": ["@template$0"],
+    "description": "Documents a type parameter. Equivalent to @typeParam in TSDoc."
+  },
+  "throws": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "@throws",
+    "body": ["@throws$0"],
+    "description": "Documents an exception that can be thrown by a function or method."
+  },
+  "typeParam": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "@typeParam",
+    "body": ["@typeParam$0"],
+    "description": "Documents a type parameter. TypeDoc recognizes @template as an alias of @typeParam."
+  },
+  "virtual": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "@virtual",
+    "body": ["@virtual$0"],
+    "description": "TypeDoc parses @virtual for TSDoc compatibility, but does not attach any meaning."
+  }
+}

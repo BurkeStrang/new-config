@@ -20,8 +20,6 @@ vim.g.ai_cmp = true
 --diagnostics
 -- vim.api.nvim_set_hl(0, "DiagnosticUnderlineError", { sp = "#CC7070", undercurl = true })
 
---enable wordwrap
--- vim.opt.wrap = true
 
 -- removes statuses and feedback in command line
 vim.opt.laststatus = 0
@@ -39,7 +37,6 @@ vim.filetype.add({ extension = { http = "http" } })
 vim.filetype.add({ extension = { razor = "razor" } })
 vim.filetype.add({ extension = { cshtml = "razor" } })
 
-vim.api.nvim_set_hl(0, "NeoTreeGitAdded", { fg = "#225500" })
 
 require("lazy").setup({
   spec = {
@@ -99,7 +96,7 @@ vim.opt.foldmarker = { "#region", "#endregion" }
 
 -- for coloring of the cursor and cursorline
 vim.cmd("highlight Visual ctermbg=0 guibg=#273c3f") -- Muted teal-blue for visual selection
-vim.cmd("highlight Cursor guifg=#1c1c1c guibg=#5a7d7c") -- Soft contrast cursor with grey-green background
-vim.opt.guicursor = "n-v-c:block-Cursor,i-ci-ve:ver25-CursorInsert,r-cr-o:hor20"
+-- vim.cmd("highlight Cursor guifg=#1c1c1c guibg=#5a7d7c") -- Soft contrast cursor with grey-green background
+-- vim.opt.guicursor = "n-v-c:block-cursor,i-ci-ve:ver25-cursorinsert,r-cr-o:hor20"
 vim.opt.cursorline = false
 vim.cmd("highlight CursorLine guibg=#2b3b3b") -- Subtle green-blue background for cursor line
