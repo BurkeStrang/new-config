@@ -5,7 +5,7 @@ return {
     "mason.nvim",
     { "williamboman/mason-lspconfig.nvim", config = function() end },
     "seblj/roslyn.nvim",
-    { "tris203/rzls.nvim", branch = "main" },
+    { "tris203/rzls.nvim", branch = "razor_ts" },
   },
   opts = function()
     ---@class PluginLspOpts

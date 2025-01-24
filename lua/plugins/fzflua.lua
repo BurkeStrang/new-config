@@ -1,8 +1,8 @@
 return {
-  "ibhagwan/fzf-lua",
-  opts = {
-    winopts = {
-      fullscreen = true,
-    },
-  },
+  -- "ibhagwan/fzf-lua",
+  -- opts = {
+  --   winopts = {
+  --     fullscreen = true,
+  --   },
+  -- },
 }
