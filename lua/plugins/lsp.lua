@@ -84,6 +84,7 @@ return {
       servers = {
         angularls = {},
         bicep = {},
+        clangd = {},
         gopls = {},
         jsonls = {},
         lua_ls = {
