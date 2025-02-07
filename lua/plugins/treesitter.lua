@@ -41,6 +41,7 @@ return {
       "printf",
       "python",
       "query",
+      "razor",
       "regex",
       "rust",
       "toml",
@@ -86,25 +87,11 @@ return {
       },
     },
   },
+  ---@param opts TSConfig
   config = function(_, opts)
-    local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
-    parser_config.razor = {
-      install_info = {
-        url = "https://github.com/tris203/tree-sitter-razor",
-        files = { "src/parser.c", "src/scanner.c" },
-        branch = "main",
-        generate_requires_npm = false,
-        requires_generate_from_grammar = false,
-      },
-      filetype = "razor",
-    }
-    table.insert(opts.ensure_installed, "razor")
-
     if type(opts.ensure_installed) == "table" then
       opts.ensure_installed = LazyVim.dedup(opts.ensure_installed)
     end
-    -- vim.treesitter.language.register("razor", "razor")
-
     require("nvim-treesitter.configs").setup(opts)
   end,
 }
