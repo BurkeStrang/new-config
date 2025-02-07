@@ -4,8 +4,21 @@ return {
   dependencies = {
     "mason.nvim",
     { "williamboman/mason-lspconfig.nvim", config = function() end },
-    "seblj/roslyn.nvim",
-    { "tris203/rzls.nvim", branch = "razor_ts" },
+    {
+      "seblyng/roslyn.nvim",
+      ft = { "cs", "razor" },
+      dependencies = {
+        {
+          -- By loading as a dependencies, we ensure that we are available to set
+          -- the handlers for roslyn
+          "tris203/rzls.nvim",
+          config = function()
+            ---@diagnostic disable-next-line: missing-fields
+            require("rzls").setup({})
+          end,
+        },
+      },
+    },
   },
   opts = function()
     ---@class PluginLspOpts
@@ -174,6 +187,7 @@ return {
       setup = {
         require("roslyn").setup({
           args = {
+            "--stdio",
             "--logLevel=Information",
             "--extensionLogDirectory=" .. vim.fs.dirname(vim.lsp.get_log_path()),
             "--razorSourceGenerator=" .. vim.fs.joinpath(
@@ -195,10 +209,6 @@ return {
             ),
           },
           config = {
-            cmd = {}, -- this gets overridden
-            -- get executable from mason
-            on_attach = nil, --lazyvim provides these in autocomnds
-            capabilities = nil, --lazyvim provides these in autocomnds
             handlers = require("rzls.roslyn_handlers"),
             settings = {
               ["csharp|inlay_hints"] = {
