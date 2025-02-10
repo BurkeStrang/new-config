@@ -10,17 +10,18 @@ return {
 
       opts.colors = {
         fg = "#479DB4", -- Light Blue
-        blue = "#1A8BBA", -- Bright Blue
-        -- fg = "#B37AB5", -- Bright Blue
-        -- blue = "#4C9EC8", -- Light Blue
-        cyan = "#5AC9C9", -- Light Cyan
+        blue = "#1A96A0", -- Greenish Blue
+        cyan = "#397B9F", -- Light Cyan
+        diag = "#5AC9C9",
         green = "#1CA191", -- Teal Green
-        orange = "#009090", -- Dark Cyan
+        orange = "#1A8BBA", -- Slightly Greenish Orange
         yellow = "#F08A60", -- Mustard Yellow
-        red = "#CC7070", -- Light Red
+        red = "#A95555", -- Light Red
         pink = "#A0568E", -- Lavender
         purple = "#9370DB", -- Medium Purple
-        magenta = "#4C8D8B", -- Dark Teal
+        magenta = "#80609F", -- Darker Muted Magenta
+        gray = "#464B68", -- Dark Gray
+        darkgreen = "#8C7D8A", -- this is really orange
       }
 
       opts.highlight = {}
@@ -33,33 +34,33 @@ return {
           Operator = { fg = colors.orange },
           Keyword = { fg = colors.orange },
           Identifier = { fg = colors.blue },
-          Delimiter = { fg = colors.magenta },
+          Delimiter = { fg = colors.darkgreen },
 
           DiagnosticError = { fg = colors.red },
           DiagnosticWarn = { fg = colors.yellow },
           DiagnosticInfo = { fg = colors.blue },
-          DiagnosticHint = { fg = colors.cyan },
+          DiagnosticHint = { fg = colors.diag },
 
-          LineNr = { fg = "#464B68" },
+          LineNr = { fg = colors.gray },
 
           -- NeoTree Git Highlight Groups
-          NeoTreeGitAdded = { fg = colors.green },
-          NeoTreeGitUnstaged = { fg = colors.green },
+          NeoTreeGitAdded = { fg = colors.orange },
+          NeoTreeGitUnstaged = { fg = colors.orange },
           NeoTreeGitModified = { fg = colors.blue },
           NeoTreeGitDeleted = { fg = colors.red },
           NeoTreeGitRenamed = { fg = colors.pink },
           NeoTreeGitUnmerged = { fg = colors.red },
           NeoTreeGitIgnored = { fg = colors.gray },
-          NeoTreeGitUntracked = { fg = colors.green },
+          NeoTreeGitUntracked = { fg = colors.orange },
 
           -- Gitsigns Highlight Groups
-          GitSignsAdd = { fg = colors.green },
-          GitSignsChange = { fg = colors.blue },
+          GitSignsAdd = { fg = colors.orange },
+          GitSignsChange = { fg = colors.green },
           GitSignsDelete = { fg = colors.red },
 
           -- NeoTree Folder Highlight Group
-          NeoTreeDirectoryName = { fg = colors.purple },
-          NeoTreeDirectoryIcon = { fg = colors.purple },
+          NeoTreeDirectoryName = { fg = colors.darkgreen },
+          NeoTreeDirectoryIcon = { fg = colors.darkgreen },
         }
       end
       return opts
