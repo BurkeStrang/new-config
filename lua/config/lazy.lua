@@ -17,6 +17,9 @@ vim.opt.rtp:prepend(lazypath)
 --copilot enabled
 vim.g.ai_cmp = true
 
+-- layzgit config
+vim.g.lazygit_config = false
+
 --diagnostics
 -- vim.api.nvim_set_hl(0, "DiagnosticUnderlineError", { sp = "#CC7070", undercurl = true })
 

@@ -10,17 +10,30 @@ return {
     },
     "nvim-telescope/telescope.nvim", -- Optional: For using slash commands
   },
-  config = {
-    strategies = {
-      chat = {
-        adapter = "copilot",
+  config = function()
+    require("codecompanion").setup({
+      strategies = {
+        chat = {
+          adapter = "openai",
+        },
+        inline = {
+          adapter = "openai",
+        },
+        agent = {
+          adapter = "openai",
+        },
       },
-      inline = {
-        adapter = "copilot",
-      },
-      agent = {
-        adapter = "copilot",
-      },
-    },
-  }
+    })
+
+    -- Add the keyboard shortcut
+    vim.api.nvim_set_keymap("n", "<leader>ac", ":CodeCompanionChat<CR>", { noremap = true, silent = true })
+    -- vim.api.nvim_set_keymap("n", "<C-a>", "<cmd>CodeCompanionActions<cr>", { noremap = true, silent = true })
+    -- vim.api.nvim_set_keymap("v", "<C-a>", "<cmd>CodeCompanionActions<cr>", { noremap = true, silent = true })
+    -- vim.api.nvim_set_keymap("n", "<leader>cca", "<cmd>CodeCompanionChat Toggle<cr>", { noremap = true, silent = true })
+    -- vim.api.nvim_set_keymap("v", "<leader>cca", "<cmd>CodeCompanionChat Toggle<cr>", { noremap = true, silent = true })
+    -- vim.api.nvim_set_keymap("v", "ga", "<cmd>CodeCompanionChat Add<cr>", { noremap = true, silent = true })
+    --
+    -- -- Expand 'cc' into 'CodeCompanion' in the command line
+    -- vim.cmd([[cab cc CodeCompanion]])
+  end,
 }

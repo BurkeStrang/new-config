@@ -5,8 +5,10 @@ return {
     priority = 1000,
     opts = function(_, opts)
       opts.transparent = true
-      opts.italic_comments = true
+      -- opts.italic_comments = true
       opts.borderless_picker = true
+      opts.hide_fillchars = true
+      opts.cache = true
 
       opts.colors = {
         fg = "#479DB4", -- Light Blue
@@ -21,7 +23,7 @@ return {
         purple = "#9370DB", -- Medium Purple
         magenta = "#80609F", -- Darker Muted Magenta
         gray = "#464B68", -- Dark Gray
-        darkgreen = "#8C7D8A", -- this is really orange
+        darkgreen = "#907D85", -- this is really orange
       }
 
       opts.highlight = {}
@@ -35,6 +37,7 @@ return {
           Keyword = { fg = colors.orange },
           Identifier = { fg = colors.blue },
           Delimiter = { fg = colors.darkgreen },
+          Comment = { fg = colors.gray, italic = true },
 
           DiagnosticError = { fg = colors.red },
           DiagnosticWarn = { fg = colors.yellow },
@@ -61,6 +64,7 @@ return {
           -- NeoTree Folder Highlight Group
           NeoTreeDirectoryName = { fg = colors.darkgreen },
           NeoTreeDirectoryIcon = { fg = colors.darkgreen },
+          NeoTreeFileName = { fg = colors.darkgreen },
         }
       end
       return opts
