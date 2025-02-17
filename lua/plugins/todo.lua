@@ -13,12 +13,13 @@ return {
         alt = { "FIXME", "BUG", "FIXIT", "ISSUE" }, -- a set of other keywords that all map to this FIX keywords
         -- signs = false, -- configure signs for some keywords individually
       },
-      TODO = { icon = " ", color = "info" },
+      TODO = { icon = " ", color = "info" },
       HACK = { icon = " ", color = "warning" },
       WARN = { icon = " ", color = "warning", alt = { "WARNING", "XXX" } },
       PERF = { icon = " ", alt = { "OPTIM", "PERFORMANCE", "OPTIMIZE" } },
       NOTE = { icon = " ", color = "hint", alt = { "INFO" } },
-      TEST = { icon = "⏲ ", color = "test", alt = { "TESTING", "PASSED", "FAILED" } },
+      TEST = { icon = " ", color = "test", alt = { "TESTING", "PASSED", "FAILED" } },
+
     },
     gui_style = {
       fg = "NONE", -- The gui style to use for the fg highlight group.
@@ -43,13 +44,18 @@ return {
     },
     -- list of named colors where we try to extract the guifg from the
     -- list of highlight groups or use the hex color if hl not found as a fallback
+    -- TODO: this is a todo
+    -- PERF: this is perf
+    -- TEST: test this
+    -- HACK: this is hack
+    -- FIX: this is a fix
     colors = {
-      error = { "#808080" },
-      warning = { "#808080" },
-      info = { "#808080" },
-      hint = { "#808080" },
-      default = { "#808080" },
-      test = { "#808080" },
+      error = { "#4141A9" },
+      warning = { "#4141A9" },
+      info = { "#4141A9" },
+      hint = { "#4141A9" },
+      default = { "#4141A9" },
+      test = { "#4141A9" },
     },
     search = {
       command = "rg",
