@@ -79,6 +79,7 @@ return {
       ---@type lspconfig.options
       servers = {
         angularls = {},
+        bashls = {},
         bicep = {},
         clangd = {},
         gopls = {},
@@ -169,6 +170,7 @@ return {
         html = {
           filetypes = { "html", "cshtml", "razor" }, -- Extend filetypes
         },
+        powershell_es = { init_options = { enableProfileLoading = false } },
         yamlls = {
           settings = {
             yaml = {

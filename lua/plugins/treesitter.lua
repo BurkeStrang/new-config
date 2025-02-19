@@ -40,6 +40,7 @@ return {
       "markdown_inline",
       "printf",
       "python",
+      "powershell",
       "query",
       "razor",
       "regex",
@@ -51,6 +52,7 @@ return {
       "vimdoc",
       "xml",
       "yaml",
+      "zig",
     },
     incremental_selection = {
       enable = true,

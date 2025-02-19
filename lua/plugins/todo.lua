@@ -50,12 +50,12 @@ return {
     -- HACK: this is hack
     -- FIX: this is a fix
     colors = {
-      error = { "#4141A9" },
-      warning = { "#4141A9" },
-      info = { "#4141A9" },
-      hint = { "#4141A9" },
-      default = { "#4141A9" },
-      test = { "#4141A9" },
+      error = { "#3B3B97" },
+      warning = { "#3B3B97" },
+      info = { "#3B3B97" },
+      hint = { "#3B3B97" },
+      default = { "#3B3B97" },
+      test = { "#3B3B97" },
     },
     search = {
       command = "rg",
