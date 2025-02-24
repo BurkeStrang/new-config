@@ -22,7 +22,7 @@ return {
         pink = "#A0568E", -- Lavender
         purple = "#9370DB", -- Medium Purple
         magenta = "#80609F", -- Darker Muted Magenta
-        gray = "#464B68", -- Dark Gray
+        gray = "#686D8C", -- Dark Gray
         darkgreen = "#907D85", -- this is really orange
       }
 

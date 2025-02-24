@@ -47,15 +47,17 @@ return {
     -- TODO: this is a todo
     -- PERF: this is perf
     -- TEST: test this
+    -- WARN: this is a warning
+    -- NOTE: this is a note
     -- HACK: this is hack
     -- FIX: this is a fix
     colors = {
-      error = { "#3B3B97" },
-      warning = { "#3B3B97" },
-      info = { "#3B3B97" },
-      hint = { "#3B3B97" },
-      default = { "#3B3B97" },
-      test = { "#3B3B97" },
+      error = { "#8A8A97" },
+      warning = { "#8A8A97" },
+      info = { "#8A8A97" },
+      hint = { "#8A8A97" },
+      default = { "#8A8A97" },
+      test = { "#8A8A97" },
     },
     search = {
       command = "rg",

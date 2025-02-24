@@ -74,7 +74,7 @@ return {
     })
 
     -- Key mappings for diffing against master
-    vim.api.nvim_set_keymap("n", "<leader>dm", ":DiffviewOpen TelcoMain<CR>", { noremap = true, silent = true })
+    vim.api.nvim_set_keymap("n", "<leader>dm", ":DiffviewOpen TelcoMain-jt<CR>", { noremap = true, silent = true })
     vim.api.nvim_set_keymap("n", "<leader>dc", ":DiffviewOpen HEAD<CR>", { noremap = true, silent = true })
 
     vim.api.nvim_set_keymap("n", "<leader>dq", ":DiffviewClose<CR>", { noremap = true, silent = true })
