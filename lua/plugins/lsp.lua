@@ -135,9 +135,11 @@ return {
           --   return require("lspconfig.util").root_pattern(".git")(...)
           -- end,
         },
-        eslint = {},
+        quick_lint_js = {},
+        vtsls = {},
+        -- eslint = {},
         terraformls = {},
-        ts_ls = {
+        -- ts_ls = {
           -- root_dir = function(...)
           --   return require("lspconfig.util").root_pattern(".git")(...)
           -- end,
@@ -166,7 +168,7 @@ return {
           --     },
           --   },
           -- },
-        },
+        -- },
         html = {
           filetypes = { "html", "cshtml", "razor" }, -- Extend filetypes
         },

@@ -20,10 +20,6 @@ vim.g.ai_cmp = true
 -- layzgit config
 vim.g.lazygit_config = false
 
---diagnostics
--- vim.api.nvim_set_hl(0, "DiagnosticUnderlineError", { sp = "#CC7070", undercurl = true })
-
-
 -- removes statuses and feedback in command line
 vim.opt.laststatus = 0
 vim.opt.ruler = false

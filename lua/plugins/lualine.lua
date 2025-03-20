@@ -1,3 +1,13 @@
+local prev_bufname = nil
+
+vim.api.nvim_create_autocmd("BufEnter", {
+  callback = function()
+    if vim.bo.filetype ~= "neo-tree" then
+      prev_bufname = vim.fn.expand("%:~:.")
+    end
+  end,
+})
+
 return {
   "nvim-lualine/lualine.nvim",
   event = "VeryLazy",
@@ -18,8 +28,13 @@ return {
       lualine_b = {},
       lualine_c = {
         {
-          "filename",
-          path = 1,
+          function()
+            if vim.bo.filetype == "neo-tree" and prev_bufname then
+              return prev_bufname
+            else
+              return vim.fn.expand("%:~:.")
+            end
+          end,
           color = { fg = "#225555" },
         },
       },

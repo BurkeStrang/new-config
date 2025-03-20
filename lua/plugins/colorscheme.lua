@@ -24,6 +24,7 @@ return {
         magenta = "#80609F", -- Darker Muted Magenta
         gray = "#686D8C", -- Dark Gray
         darkgreen = "#907D85", -- this is really orange
+        spellgrey = "#808080", -- Grey for spelling errors
       }
 
       opts.highlight = {}
@@ -65,6 +66,9 @@ return {
           NeoTreeDirectoryName = { fg = colors.darkgreen },
           NeoTreeDirectoryIcon = { fg = colors.darkgreen },
           NeoTreeFileName = { fg = colors.darkgreen },
+
+          -- SpellBad Highlight (Grey undercurl)
+          SpellBad = { undercurl = true, sp = colors.spellgrey },
         }
       end
       return opts
