@@ -5,40 +5,25 @@
 --
 -- does a diff for changes made before last save
 local function diff_current_buf()
-  -- focus current buffer
-  local bufnr = vim.api.nvim_get_current_buf()
-  local ft = vim.api.nvim_buf_get_option(bufnr, 'filetype')
-  local curstate = vim.g.buffer_diff_state and vim.g.buffer_diff_state[bufnr]
+  local buf = vim.api.nvim_get_current_buf()
+  local ft = vim.bo[buf].filetype
+  local buf_content = vim.api.nvim_buf_get_lines(buf, 0, -1, false)
 
-  if not curstate or not vim.tbl_contains(vim.api.nvim_list_tabpages(), curstate) then
-    -- reset if tabpage no longer valid
-    vim.g.buffer_diff_state = vim.g.buffer_diff_state or {}
-    vim.g.buffer_diff_state[bufnr] = nil
-  else
-    -- focus the existing diff tab
-    vim.api.nvim_set_current_tabpage(curstate)
-    return
-  end
+  vim.cmd("vsplit")
+  local new_buf = vim.api.nvim_create_buf(false, true)
+  vim.api.nvim_win_set_buf(0, new_buf)
 
-  -- create diff split
-  vim.cmd(string.format([[
-    tab split
-    diffthis
+  vim.api.nvim_buf_set_lines(new_buf, 0, -1, false, vim.fn.readfile(vim.api.nvim_buf_get_name(buf)))
 
-    topleft vnew | read # | normal! 1Gdd
-    setlocal buftype=nofile
-    setlocal nobuflisted
-    setlocal noswapfile
-    setlocal readonly!
-    setlocal filetype=%s
-    diffthis
+  vim.bo[new_buf].buftype = "nofile"
+  vim.bo[new_buf].buflisted = false
+  vim.bo[new_buf].swapfile = false
+  vim.bo[new_buf].readonly = true
+  vim.bo[new_buf].filetype = ft
 
-    wincmd p
-  ]], ft))
-
-  -- save the tabpage for the buffer
-  vim.g.buffer_diff_state[bufnr] = vim.api.nvim_get_current_tabpage()
+  vim.cmd("diffthis")
+  vim.cmd("wincmd p")
+  vim.cmd("diffthis")
 end
 
--- Keymap to trigger the diff function
-vim.keymap.set('n', '<leader>gd', diff_current_buf, { desc = "Diff Current Buffer" })
+vim.keymap.set("n", "<leader>gd", diff_current_buf, { desc = "Diff Current Buffer" })

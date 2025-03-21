@@ -135,9 +135,9 @@ return {
           --   return require("lspconfig.util").root_pattern(".git")(...)
           -- end,
         },
-        quick_lint_js = {},
+        -- quick_lint_js = {},
         vtsls = {},
-        -- eslint = {},
+        eslint = {},
         terraformls = {},
         -- ts_ls = {
           -- root_dir = function(...)
