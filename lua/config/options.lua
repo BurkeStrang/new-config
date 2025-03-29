@@ -24,5 +24,5 @@ vim.api.nvim_create_autocmd("TextChanged", {
 })
 
 vim.opt.wrap = false
-vim.opt.spell = true
+vim.opt.spell = false
 vim.g.autoformat = false
