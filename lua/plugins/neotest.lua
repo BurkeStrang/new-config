@@ -8,7 +8,7 @@ return {
       "nvim-neotest/neotest-python",
       "nvim-neotest/neotest-plenary",
       "nvim-neotest/neotest-jest",
-      "Issafalcon/neotest-dotnet",
+      "Nsidorenco/neotest-dotnet",
       -- { dir = "~/repos/neotest-dotnet" },
     },
     config = function()
