@@ -82,7 +82,7 @@ return {
         bashls = {},
         bicep = {},
         clangd = {},
-        gopls = {},
+        -- gopls = {},
         jsonls = {},
         lua_ls = {
           -- mason = false, -- set to false if you don't want this server to be installed with mason
@@ -129,7 +129,7 @@ return {
         --   },
         -- },
         -- cssls = {},
-        jdtls = {},
+        -- jdtls = {},
         tailwindcss = {
           -- root_dir = function(...)
           --   return require("lspconfig.util").root_pattern(".git")(...)
@@ -138,7 +138,7 @@ return {
         -- quick_lint_js = {},
         vtsls = {},
         eslint = {},
-        terraformls = {},
+        -- terraformls = {},
         -- ts_ls = {
           -- root_dir = function(...)
           --   return require("lspconfig.util").root_pattern(".git")(...)
