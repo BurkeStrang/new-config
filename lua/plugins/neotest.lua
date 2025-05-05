@@ -8,7 +8,8 @@ return {
       "nvim-neotest/neotest-python",
       "nvim-neotest/neotest-plenary",
       "nvim-neotest/neotest-jest",
-      "Nsidorenco/neotest-dotnet",
+      "nvim-neotest/neotest-go",
+      "Issafalcon/neotest-dotnet",
       -- { dir = "~/repos/neotest-dotnet" },
     },
     config = function()
@@ -26,9 +27,15 @@ return {
           require("neotest-jest")({
             jestCommand = "npm test -- --runInBand --no-cache --watchAll=false",
             env = { CI = "true" },
-            cwd = function(path)
+            cwd = function()
               return vim.fn.getcwd()
             end,
+          }),
+          require("neotest-go")({
+            experimental = {
+              test_table = true,
+            },
+            args = { "-v" },
           }),
         },
       })
