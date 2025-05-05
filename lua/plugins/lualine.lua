@@ -26,7 +26,16 @@ return {
         },
       },
       lualine_b = {},
-      lualine_c = {
+      lualine_c = {},
+      lualine_x = {},
+      lualine_y = {
+        -- {
+        --   "diff",
+        --   symbols = { added = " ", modified = " ", removed = " " },
+        --   color_added = { fg = "#1CA191" },
+        --   color_modified = { fg = "#0099CC" },
+        --   color_removed = { fg = "#CC7070" },
+        -- },
         {
           function()
             if vim.bo.filetype == "neo-tree" and prev_bufname then
@@ -38,28 +47,7 @@ return {
           color = { fg = "#225555" },
         },
       },
-      lualine_x = {},
-      lualine_y = {
-        {
-          "diff",
-          symbols = { added = " ", modified = " ", removed = " " },
-          color_added = { fg = "#1CA191" },
-          color_modified = { fg = "#0099CC" },
-          color_removed = { fg = "#CC7070" },
-        },
-        {
-          "progress",
-          color = { fg = "#4B4F53" },
-        },
-      },
-      lualine_z = {
-        {
-          function()
-            return os.date("%I:%M %p")
-          end,
-          color = { fg = "#225555" },
-        },
-      },
+      lualine_z = {},
     },
     inactive_sections = {
       lualine_a = {},

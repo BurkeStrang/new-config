@@ -40,5 +40,5 @@ end
 
 vim.keymap.set("n", "<leader>gd", diff_current_buf, { desc = "Diff Current Buffer" })
 
-vim.keymap.set("n", "<C-u>", "<C-u>zz", { desc = "Scroll up and center" })
-vim.keymap.set("n", "<C-d>", "<C-d>zz", { desc = "Scroll down and center" })
+-- vim.keymap.set("n", "<C-u>", "<C-u>zz", { desc = "Scroll up and center" })
+-- vim.keymap.set("n", "<C-d>", "<C-d>zz", { desc = "Scroll down and center" })

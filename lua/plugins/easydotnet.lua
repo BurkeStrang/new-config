@@ -1,41 +1,37 @@
 return {
   "GustavEikaas/easy-dotnet.nvim",
-  dependencies = {
-    "nvim-lua/plenary.nvim",
-    "nvim-telescope/telescope.nvim",
-  },
+  -- 'nvim-telescope/telescope.nvim' or 'ibhagwan/fzf-lua' or 'folke/snacks.nvim'
+  -- are highly recommended for a better experience
+  dependencies = { "nvim-lua/plenary.nvim", "folke/snacks.nvim" },
   config = function()
-    local function get_sdk_path()
-      -- If you also want to differentiate between Windows/WSL/Linux, you can
-      -- check 'require("easy-dotnet.extensions").isWindows()' or 'isWsl()'
-      -- For simplicity here, we're just returning the Linux path.
-      if require("easy-dotnet.extensions").isWindows() then
-        return "C:\\Program Files\\dotnet\\sdk\\9.0.101"
-      end
-      return "/usr/lib/dotnet/sdk/9.0.101"
-    end
-
     local function get_secret_path(secret_guid)
       local path = ""
       local home_dir = vim.fn.expand("~")
       if require("easy-dotnet.extensions").isWindows() then
-        -- Windows path
-        path = home_dir .. "\\AppData\\Roaming\\Microsoft\\UserSecrets\\" .. secret_guid .. "\\secrets.json"
+        local secret_path = home_dir
+          .. "\\AppData\\Roaming\\Microsoft\\UserSecrets\\"
+          .. secret_guid
+          .. "\\secrets.json"
+        path = secret_path
       else
-        -- Linux/macOS/WSL path
-        path = home_dir .. "/.microsoft/usersecrets/" .. secret_guid .. "/secrets.json"
+        local secret_path = home_dir .. "/.microsoft/usersecrets/" .. secret_guid .. "/secrets.json"
+        path = secret_path
       end
       return path
     end
 
     local dotnet = require("easy-dotnet")
+    -- Options are not required
     dotnet.setup({
-      -- Point to a specific SDK version
+      --Optional function to return the path for the dotnet sdk (e.g C:/ProgramFiles/dotnet/sdk/8.0.0)
+      -- easy-dotnet will resolve the path automatically if this argument is omitted, for a performance improvement you can add a function that returns a hardcoded string
+      -- You should define this function to return a hardcoded path for a performance improvement 🚀
       get_sdk_path = get_sdk_path,
-
+      ---@type TestRunnerOptions
       test_runner = {
+        ---@type "split" | "float" | "buf"
         viewmode = "float",
-        enable_buffer_test_execution = true, -- Experimental
+        enable_buffer_test_execution = true, --Experimental, run tests directly from buffer
         noBuild = true,
         noRestore = true,
         icons = {
@@ -51,23 +47,28 @@ return {
           package = "",
         },
         mappings = {
-          -- run_test_from_buffer = { lhs = "<leader>r", desc = "run test from buffer" },
-          -- filter_failed_tests = { lhs = "<leader>fe", desc = "filter failed tests" },
-          -- debug_test = { lhs = "<leader>d", desc = "debug test" },
-          -- go_to_file = { lhs = "g", desc = "go to file" },
-          -- run_all = { lhs = "<leader>R", desc = "run all tests" },
-          -- run = { lhs = "<leader>r", desc = "run test" },
-          -- peek_stacktrace = { lhs = "<leader>p", desc = "peek stacktrace of failed test" },
-          -- expand = { lhs = "o", desc = "expand" },
-          -- expand_node = { lhs = "E", desc = "expand node" },
-          -- expand_all = { lhs = "-", desc = "expand all" },
-          -- collapse_all = { lhs = "W", desc = "collapse all" },
-          -- close = { lhs = "q", desc = "close testrunner" },
-          -- refresh_testrunner = { lhs = "<C-r>", desc = "refresh testrunner" },
+          run_test_from_buffer = { lhs = "<leader>r", desc = "run test from buffer" },
+          filter_failed_tests = { lhs = "<leader>fe", desc = "filter failed tests" },
+          debug_test = { lhs = "<leader>d", desc = "debug test" },
+          go_to_file = { lhs = "g", desc = "got to file" },
+          run_all = { lhs = "<leader>R", desc = "run all tests" },
+          run = { lhs = "<leader>r", desc = "run test" },
+          peek_stacktrace = { lhs = "<leader>p", desc = "peek stacktrace of failed test" },
+          expand = { lhs = "o", desc = "expand" },
+          expand_node = { lhs = "E", desc = "expand node" },
+          expand_all = { lhs = "-", desc = "expand all" },
+          collapse_all = { lhs = "W", desc = "collapse all" },
+          close = { lhs = "q", desc = "close testrunner" },
+          refresh_testrunner = { lhs = "<C-r>", desc = "refresh testrunner" },
         },
+        --- Optional table of extra args e.g "--blame crash"
         additional_args = {},
       },
-
+      new = {
+        project = {
+          prefix = "sln", -- "sln" | "none"
+        },
+      },
       ---@param action "test" | "restore" | "build" | "run"
       terminal = function(path, action, args)
         local commands = {
@@ -83,18 +84,31 @@ return {
           build = function()
             return string.format("dotnet build %s %s", path, args)
           end,
+          watch = function()
+            return string.format("dotnet watch --project %s %s", path, args)
+          end,
         }
-        local command = commands[action]() .. "\r"
+
+        local command = commands[action]()
         vim.cmd("vsplit")
         vim.cmd("term " .. command)
       end,
-
       secrets = {
         path = get_secret_path,
       },
       csproj_mappings = true,
       fsproj_mappings = true,
-      auto_bootstrap_namespace = true,
+      auto_bootstrap_namespace = {
+        --block_scoped, file_scoped
+        type = "file_scoped",
+        enabled = true,
+      },
+      -- choose which picker to use with the plugin
+      -- possible values are "telescope" | "fzf" | "snacks" | "basic"
+      -- if no picker is specified, the plugin will determine
+      -- the available one automatically with this priority:
+      -- telescope -> fzf -> snacks ->  basic
+      picker = "snacks",
     })
 
     -- Example command
@@ -102,18 +116,9 @@ return {
       dotnet.secrets()
     end, {})
 
-    -- Example keybindings
-    -- vim.keymap.set("n", "<leader>rp", function()
-    --   dotnet.run_project()
-    -- end, { desc = "Run .NET project" })
-    -- vim.keymap.set("n", "<leader>tb", function()
-    --   require("easy-dotnet").run_test_from_buffer()
-    -- end, { desc = "Run tests from buffer" })
-    -- vim.keymap.set("n", "<leader>db", function()
-    --   dotnet.debug_buffer()
-    -- end, { desc = "Debug tests in buffer" })
-    -- vim.keymap.set("n", "<leader>rf", function()
-    --   dotnet.refresh()
-    -- end, { desc = "Refresh .NET project" })
+    -- Example keybinding
+    vim.keymap.set("n", "<C-p>", function()
+      dotnet.run_project()
+    end)
   end,
 }
