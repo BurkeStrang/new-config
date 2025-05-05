@@ -76,7 +76,6 @@ return {
         timeout_ms = nil,
       },
       -- LSP Server Settings
-      ---@type lspconfig.options
       servers = {
         angularls = {},
         bashls = {},
@@ -140,34 +139,34 @@ return {
         eslint = {},
         terraformls = {},
         -- ts_ls = {
-          -- root_dir = function(...)
-          --   return require("lspconfig.util").root_pattern(".git")(...)
-          -- end,
-          -- single_file_support = false,
-          -- settings = {
-          --   typescript = {
-          --     inlayHints = {
-          --       includeInlayParameterNameHints = "literal",
-          --       includeInlayParameterNameHintsWhenArgumentMatchesName = false,
-          --       includeInlayFunctionParameterTypeHints = true,
-          --       includeInlayVariableTypeHints = false,
-          --       includeInlayPropertyDeclarationTypeHints = true,
-          --       includeInlayFunctionLikeReturnTypeHints = true,
-          --       includeInlayEnumMemberValueHints = true,
-          --     },
-          --   },
-          --   javascript = {
-          --     inlayHints = {
-          --       includeInlayParameterNameHints = "all",
-          --       includeInlayParameterNameHintsWhenArgumentMatchesName = false,
-          --       includeInlayFunctionParameterTypeHints = true,
-          --       includeInlayVariableTypeHints = true,
-          --       includeInlayPropertyDeclarationTypeHints = true,
-          --       includeInlayFunctionLikeReturnTypeHints = true,
-          --       includeInlayEnumMemberValueHints = true,
-          --     },
-          --   },
-          -- },
+        -- root_dir = function(...)
+        --   return require("lspconfig.util").root_pattern(".git")(...)
+        -- end,
+        -- single_file_support = false,
+        -- settings = {
+        --   typescript = {
+        --     inlayHints = {
+        --       includeInlayParameterNameHints = "literal",
+        --       includeInlayParameterNameHintsWhenArgumentMatchesName = false,
+        --       includeInlayFunctionParameterTypeHints = true,
+        --       includeInlayVariableTypeHints = false,
+        --       includeInlayPropertyDeclarationTypeHints = true,
+        --       includeInlayFunctionLikeReturnTypeHints = true,
+        --       includeInlayEnumMemberValueHints = true,
+        --     },
+        --   },
+        --   javascript = {
+        --     inlayHints = {
+        --       includeInlayParameterNameHints = "all",
+        --       includeInlayParameterNameHintsWhenArgumentMatchesName = false,
+        --       includeInlayFunctionParameterTypeHints = true,
+        --       includeInlayVariableTypeHints = true,
+        --       includeInlayPropertyDeclarationTypeHints = true,
+        --       includeInlayFunctionLikeReturnTypeHints = true,
+        --       includeInlayEnumMemberValueHints = true,
+        --     },
+        --   },
+        -- },
         -- },
         html = {
           filetypes = { "html", "cshtml", "razor" }, -- Extend filetypes
@@ -184,7 +183,7 @@ return {
       },
       -- you can do any additional lsp server setup here
       -- return true if you don't want this server to be setup with lspconfig
-      ---@type table<string, fun(server:string, opts:_.lspconfig.options):boolean?>
+      ---@type table<string, fun(server:string):boolean?>
       setup = {
         require("roslyn").setup({
           args = {
