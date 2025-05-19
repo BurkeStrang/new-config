@@ -4,21 +4,6 @@ return {
   dependencies = {
     "mason.nvim",
     { "williamboman/mason-lspconfig.nvim", config = function() end },
-    {
-      "seblyng/roslyn.nvim",
-      ft = { "cs", "razor" },
-      dependencies = {
-        {
-          -- By loading as a dependencies, we ensure that we are available to set
-          -- the handlers for roslyn
-          "tris203/rzls.nvim",
-          config = function()
-            ---@diagnostic disable-next-line: missing-fields
-            require("rzls").setup({})
-          end,
-        },
-      },
-    },
   },
   opts = function()
     ---@class PluginLspOpts
@@ -84,11 +69,6 @@ return {
         gopls = {},
         jsonls = {},
         lua_ls = {
-          -- mason = false, -- set to false if you don't want this server to be installed with mason
-          -- Use this to add any additional keymaps
-          -- for specific lsp servers
-          ---@type LazyKeysSpec[]
-          -- keys = {},
           settings = {
             Lua = {
               workspace = {
@@ -115,59 +95,12 @@ return {
           },
         },
         pylsp = {},
-        -- ruff_lsp = {},
         rust_analyzer = {},
-        -- pyright = {
-        --   settings = {
-        --     python = {
-        --       analysis = {
-        --         autoSearchPaths = true,
-        --         useLibraryCodeForTypes = true,
-        --       },
-        --     },
-        --   },
-        -- },
-        -- cssls = {},
         jdtls = {},
-        tailwindcss = {
-          -- root_dir = function(...)
-          --   return require("lspconfig.util").root_pattern(".git")(...)
-          -- end,
-        },
-        -- quick_lint_js = {},
+        tailwindcss = {},
         vtsls = {},
         eslint = {},
         terraformls = {},
-        -- ts_ls = {
-        -- root_dir = function(...)
-        --   return require("lspconfig.util").root_pattern(".git")(...)
-        -- end,
-        -- single_file_support = false,
-        -- settings = {
-        --   typescript = {
-        --     inlayHints = {
-        --       includeInlayParameterNameHints = "literal",
-        --       includeInlayParameterNameHintsWhenArgumentMatchesName = false,
-        --       includeInlayFunctionParameterTypeHints = true,
-        --       includeInlayVariableTypeHints = false,
-        --       includeInlayPropertyDeclarationTypeHints = true,
-        --       includeInlayFunctionLikeReturnTypeHints = true,
-        --       includeInlayEnumMemberValueHints = true,
-        --     },
-        --   },
-        --   javascript = {
-        --     inlayHints = {
-        --       includeInlayParameterNameHints = "all",
-        --       includeInlayParameterNameHintsWhenArgumentMatchesName = false,
-        --       includeInlayFunctionParameterTypeHints = true,
-        --       includeInlayVariableTypeHints = true,
-        --       includeInlayPropertyDeclarationTypeHints = true,
-        --       includeInlayFunctionLikeReturnTypeHints = true,
-        --       includeInlayEnumMemberValueHints = true,
-        --     },
-        --   },
-        -- },
-        -- },
         html = {
           filetypes = { "html", "cshtml", "razor" }, -- Extend filetypes
         },
@@ -185,53 +118,7 @@ return {
       -- return true if you don't want this server to be setup with lspconfig
       ---@type table<string, fun(server:string):boolean?>
       setup = {
-        require("roslyn").setup({
-          args = {
-            "--stdio",
-            "--logLevel=Information",
-            "--extensionLogDirectory=" .. vim.fs.dirname(vim.lsp.get_log_path()),
-            "--razorSourceGenerator=" .. vim.fs.joinpath(
-              vim.fn.stdpath("data") --[[@as string]],
-              "mason",
-              "packages",
-              "roslyn",
-              "libexec",
-              "Microsoft.CodeAnalysis.Razor.Compiler.dll"
-            ),
-            "--razorDesignTimePath=" .. vim.fs.joinpath(
-              vim.fn.stdpath("data") --[[@as string]],
-              "mason",
-              "packages",
-              "rzls",
-              "libexec",
-              "Targets",
-              "Microsoft.NET.Sdk.Razor.DesignTime.targets"
-            ),
-          },
-          config = {
-            handlers = require("rzls.roslyn_handlers"),
-            settings = {
-              ["csharp|inlay_hints"] = {
-                csharp_enable_inlay_hints_for_implicit_object_creation = false,
-                csharp_enable_inlay_hints_for_implicit_variable_types = false,
-
-                csharp_enable_inlay_hints_for_lambda_parameter_types = false,
-                csharp_enable_inlay_hints_for_types = false,
-                dotnet_enable_inlay_hints_for_indexer_parameters = false,
-                dotnet_enable_inlay_hints_for_literal_parameters = false,
-                dotnet_enable_inlay_hints_for_object_creation_parameters = false,
-                dotnet_enable_inlay_hints_for_other_parameters = false,
-                dotnet_enable_inlay_hints_for_parameters = false,
-                dotnet_suppress_inlay_hints_for_parameters_that_differ_only_by_suffix = false,
-                dotnet_suppress_inlay_hints_for_parameters_that_match_argument_name = false,
-                dotnet_suppress_inlay_hints_for_parameters_that_match_method_intent = false,
-              },
-              ["csharp|code_lens"] = {
-                dotnet_enable_references_code_lens = false,
-              },
-            },
-          },
-        }),
+        require("roslyn").setup({}),
       },
     }
     return ret
