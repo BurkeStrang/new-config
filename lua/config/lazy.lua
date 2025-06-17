@@ -5,7 +5,7 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
   if vim.v.shell_error ~= 0 then
     vim.api.nvim_echo({
       { "Failed to clone lazy.nvim:\n", "ErrorMsg" },
-      { out, "WarningMsg" },
+      { out,                            "WarningMsg" },
       { "\nPress any key to exit..." },
     }, true, {})
     vim.fn.getchar()
@@ -57,7 +57,7 @@ require("lazy").setup({
   checker = {
     enabled = true, -- check for plugin updates periodically
     notify = false, -- notify on update
-  }, -- automatically check for plugin updates
+  },                -- automatically check for plugin updates
   performance = {
     rtp = {
       -- disable some rtp plugins
@@ -77,14 +77,14 @@ require("lazy").setup({
 
 -- for opening urls
 vim.ui.open = function(url)
-  -- Check if running in WSL
   local is_wsl = vim.fn.has("wsl") == 1
+  local is_linux = vim.fn.has("unix") == 1 and not is_wsl
 
   if is_wsl then
-    -- Use wslview in WSL
     vim.fn.system({ "wslview", url })
+  elseif is_linux then
+    vim.fn.system({ "xdg-open", url })
   else
-    -- Use start in Windows
     vim.fn.system({ "cmd.exe", "/C", "start", url })
   end
 end

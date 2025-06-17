@@ -2,7 +2,7 @@ local prev_bufname = nil
 
 vim.api.nvim_create_autocmd("BufEnter", {
   callback = function()
-    if vim.bo.filetype ~= "neo-tree" then
+    if vim.bo.filetype ~= "neo-tree" and vim.bo.filetype ~= "copilot-chat" then
       prev_bufname = vim.fn.expand("%:~:.")
     end
   end,
@@ -38,7 +38,8 @@ return {
         -- },
         {
           function()
-            if vim.bo.filetype == "neo-tree" and prev_bufname then
+            local ft = vim.bo.filetype
+            if (ft == "neo-tree" or ft == "copilot-chat")  and prev_bufname then
               return prev_bufname
             else
               return vim.fn.expand("%:~:.")

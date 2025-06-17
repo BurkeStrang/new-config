@@ -64,9 +64,9 @@ return {
       servers = {
         angularls = {},
         bashls = {},
-        bicep = {},
-        clangd = {},
-        gopls = {},
+        -- bicep = {},
+        -- clangd = {},
+        -- gopls = {},
         jsonls = {},
         lua_ls = {
           settings = {
@@ -94,17 +94,17 @@ return {
             },
           },
         },
-        pylsp = {},
+        -- pylsp = {},
         rust_analyzer = {},
         jdtls = {},
         tailwindcss = {},
         vtsls = {},
         eslint = {},
-        terraformls = {},
+        -- terraformls = {},
         html = {
           filetypes = { "html", "cshtml", "razor" }, -- Extend filetypes
         },
-        powershell_es = { init_options = { enableProfileLoading = false } },
+        -- powershell_es = { init_options = { enableProfileLoading = false } },
         yamlls = {
           settings = {
             yaml = {
