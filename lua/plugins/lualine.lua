@@ -1,8 +1,18 @@
 local prev_bufname = nil
-
 vim.api.nvim_create_autocmd("BufEnter", {
   callback = function()
-    if vim.bo.filetype ~= "neo-tree" and vim.bo.filetype ~= "copilot-chat" then
+    local filetype = vim.bo.filetype
+    local bufname = vim.fn.expand("%")
+
+    -- Check if this is a buffer we want to ignore
+    local should_ignore = filetype == "copilot-chat" or
+        filetype == "neo-tree" or
+        (filetype == "neo-tree" and (
+          string.match(bufname, "buffers") or
+          string.match(bufname, "git_status")
+        ))
+
+    if not should_ignore then
       prev_bufname = vim.fn.expand("%:~:.")
     end
   end,
@@ -29,17 +39,13 @@ return {
       lualine_c = {},
       lualine_x = {},
       lualine_y = {
-        -- {
-        --   "diff",
-        --   symbols = { added = " ", modified = " ", removed = " " },
-        --   color_added = { fg = "#1CA191" },
-        --   color_modified = { fg = "#0099CC" },
-        --   color_removed = { fg = "#CC7070" },
-        -- },
         {
           function()
             local ft = vim.bo.filetype
-            if (ft == "neo-tree" or ft == "copilot-chat")  and prev_bufname then
+            local bufname = vim.fn.expand("%")
+
+            -- Show previous buffer name for ignored buffer types
+            if (ft == "neo-tree" or ft == "copilot-chat") and prev_bufname then
               return prev_bufname
             else
               return vim.fn.expand("%:~:.")

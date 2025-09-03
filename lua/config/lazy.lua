@@ -15,7 +15,8 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 --copilot enabled
-vim.g.ai_cmp = true
+vim.g.ai_cmp = false
+vim.g.copilot_enabled = 0
 
 -- layzgit config
 vim.g.lazygit_config = false

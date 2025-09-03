@@ -62,8 +62,8 @@ return {
       },
       -- LSP Server Settings
       servers = {
-        angularls = {},
-        bashls = {},
+        -- angularls = {},
+        -- bashls = {},
         -- bicep = {},
         -- clangd = {},
         -- gopls = {},
@@ -95,8 +95,8 @@ return {
           },
         },
         -- pylsp = {},
-        rust_analyzer = {},
-        jdtls = {},
+        -- rust_analyzer = {},
+        -- jdtls = {},
         tailwindcss = {},
         vtsls = {},
         eslint = {},

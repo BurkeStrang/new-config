@@ -1,0 +1,13 @@
+return {}
+-- return {
+--   'developedbyed/marko.nvim',
+--   config = function()
+--     require('marko').setup({
+--       width = 100,
+--       height = 100,
+--       border = "rounded",
+--       title = " Marks ",
+--     })
+--     vim.keymap.set('n', '<leader>m', ':Marko<CR>', { noremap = true, silent = true })
+--   end,
+-- }
