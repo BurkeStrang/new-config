@@ -94,7 +94,7 @@ return {
             },
           },
         },
-        -- pylsp = {},
+        pylsp = {},
         -- rust_analyzer = {},
         -- jdtls = {},
         tailwindcss = {},
