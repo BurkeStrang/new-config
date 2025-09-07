@@ -1,7 +1,7 @@
 return {
   "epwalsh/obsidian.nvim",
-  version = "*",  -- recommended, use latest release instead of latest commit
-  lazy = true,
+  version = "*", -- recommended, use latest release instead of latest commit
+  lazy = false,
   ft = "markdown",
   -- Replace the above line with this if you only want to load obsidian.nvim for markdown files in your vault:
   -- event = {
@@ -22,10 +22,15 @@ return {
     workspaces = {
       {
         name = "Burkes Notes",
-        path = "/mnt/c/Users/bstrang/iCloudDrive/iCloud~md~obsidian/Burkes Notes/Burkes Notes",
+        path = "/mnt/c/Users/burke/iCloudDrive/iCloud~md~obsidian/Burkes Notes/Burkes Notes",
       },
     },
-
-    -- see below for full list of options 👇
+    daily_notes = {
+      folder = "Personal/Daily Planning", -- relative to vault root
+      date_format = "%Y-%m-%d", -- adjust if Obsidian uses another format
+      alias_format = "%B %-d, %Y", -- e.g. "September 6, 2025"
+      -- template = "Templates/Daily.md", -- optional, relative to vault
+    },
+    mappings = {}, -- keep this if you're using obsidian.nvim’s built-in mappings
   },
 }

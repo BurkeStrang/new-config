@@ -63,3 +63,22 @@ end
 vim.keymap.set("n", "<leader>gD", git_diff_current_buf, { desc = "Git Diff Current Buffer" })
 -- vim.keymap.set("n", "<C-u>", "<C-u>zz", { desc = "Scroll up and center" })
 -- vim.keymap.set("n", "<C-d>", "<C-d>zz", { desc = "Scroll down and center" })
+
+vim.keymap.set("n", "<leader>ot", function()
+  -- open split to the left
+  vim.cmd("leftabove vsplit")
+  -- make it narrower (say 40 columns wide, tweak to taste)
+  vim.cmd("vertical resize 50")
+  -- run ObsidianToday in that split
+  vim.cmd("ObsidianToday")
+end, { desc = "Open today's daily note in narrow left split" })
+
+
+vim.keymap.set("n", "<leader>oq", function()
+  -- open split to the left
+  vim.cmd("leftabove vsplit")
+  -- make it narrower (say 40 columns wide, tweak to taste)
+  vim.cmd("vertical resize 50")
+  -- run ObsidianToday in that split
+  vim.cmd("ObsidianQuickSwitch")
+end, { desc = "Open quick switch" })
