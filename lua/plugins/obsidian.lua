@@ -22,7 +22,7 @@ return {
     workspaces = {
       {
         name = "Burkes Notes",
-        path = "/mnt/c/Users/burke/iCloudDrive/iCloud~md~obsidian/Burkes Notes/Burkes Notes",
+        path = "/mnt/c/Users/bstrang/iCloudDrive/iCloud~md~obsidian/Burkes Notes/Burkes Notes",
       },
     },
     daily_notes = {
