@@ -21,9 +21,9 @@ local function git_diff_current_buf()
     vim.notify("Failed to get git content: " .. table.concat(git_content, "\n"), vim.log.levels.ERROR)
     return
   end
-  
+
   local buffer_name = string.format("[previous] %s", vim.fn.fnamemodify(file_path, ":t"))
-  
+
   -- check if buffer with this name already exists
   local existing_buf = vim.fn.bufnr(buffer_name)
   if existing_buf ~= -1 then
@@ -35,7 +35,7 @@ local function git_diff_current_buf()
     -- delete the existing buffer
     vim.api.nvim_buf_delete(existing_buf, { force = true })
   end
-  
+
   -- create vertical split and new scratch buffer
   vim.cmd("vsplit")
   local new_buf = vim.api.nvim_create_buf(false, true)
