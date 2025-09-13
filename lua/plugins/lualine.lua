@@ -64,7 +64,7 @@ return {
             end
             return name
           end,
-          color = { fg = "#225555" },
+          color = { fg = "#4B4F53" },
         },
       },
       lualine_z = {},
