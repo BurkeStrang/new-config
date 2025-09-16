@@ -64,6 +64,18 @@ return {
       },
     },
     textobjects = {
+      select = {
+        enable = true,
+        lookahead = true, -- jump forward to textobj
+        keymaps = {
+          ["af"] = "@function.outer",
+          ["if"] = "@function.inner",
+          ["ac"] = "@class.outer",
+          ["ic"] = "@class.inner",
+          ["aa"] = "@parameter.outer",
+          ["ia"] = "@parameter.inner",
+        },
+      },
       move = {
         enable = true,
         goto_next_start = {
