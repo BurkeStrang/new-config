@@ -82,3 +82,7 @@ vim.keymap.set("n", "<leader>oq", function()
   -- run ObsidianToday in that split
   vim.cmd("ObsidianQuickSwitch")
 end, { desc = "Open quick switch" })
+
+vim.keymap.set("n", "<leader>fd", function()
+  require("gitsigns").preview_hunk()
+end, { desc = "Preview Git Hunk" })

@@ -11,24 +11,26 @@ return {
       opts.hide_fillchars = true
       opts.cache = true
 
-
       -- Cooler tilt: more green + blue, still muted
       opts.colors = {
-        fg        = "#799FD9", -- desaturated blue-gray
-        blue      = "#9080E0", -- cooler, more blue than purple
-        cyan      = "#5CC8D7", -- blue-leaning cyan
-        diag      = "#4FB9BF", -- teal-ish for hints
-        green     = "#5B9B9F", -- cool green/teal
-        darkgreen = "#3C6E71", -- deep teal-green
-        orange    = "#3A9B8D", -- keep warm accent teal-leaning
-        yellow    = "#C9A86D",
-        red       = "#D1636E",
-        pink      = "#9B8AD8", -- toned down
-        purple    = "#8E90D3", -- cooler purple
-        magenta   = "#7B84B8", -- desaturated blue-magenta
-        gray      = "#5A6272",
-        spellgrey = "#6B7089",
-        darkgray  = "#909090",
+        fg = "#8E878E",
+
+        green = "#68685E",
+        darkgreen = "#3F684E",
+        cyan = "#6DA7A0",
+        blue = "#6588A1",
+
+        yellow = "#D0B96A",
+        orange = "#7C7C62",
+        red = "#B06E6E",
+
+        purple = "#867EA9",
+        pink = "#9A8E9E",
+        magenta = "#8C7FA0",
+
+        gray = "#5E6466",
+        spellgrey = "#5E6466",
+        darkgray = "#5E6466",
       }
 
       opts.highlight = opts.highlight or {}
@@ -39,33 +41,33 @@ return {
           ---------------------------------------------------------------------
           -- UI / Editor
           ---------------------------------------------------------------------
-          Normal         = { fg = colors.fg, bg = none },
-          NormalNC       = { fg = colors.fg, bg = none },
-          NormalFloat    = { fg = colors.fg, bg = none },
-          FloatBorder    = { fg = colors.gray, bg = none },
-          WinSeparator   = { fg = colors.gray, bg = none },
-          VertSplit      = { fg = colors.gray, bg = none },
+          Normal = { fg = colors.fg, bg = none },
+          NormalNC = { fg = colors.fg, bg = none },
+          NormalFloat = { fg = colors.fg, bg = none },
+          FloatBorder = { fg = colors.gray, bg = none },
+          WinSeparator = { fg = colors.gray, bg = none },
+          VertSplit = { fg = colors.gray, bg = none },
 
-          SignColumn     = { bg = none },
-          LineNr         = { fg = colors.gray, bg = none },
+          SignColumn = { bg = none },
+          LineNr = { fg = colors.gray, bg = none },
           -- CursorLine     = { bg = none },
           -- CursorLineNr   = { fg = colors.cyan, bold = true, bg = none },
           -- CursorColumn   = { bg = none },
           -- ColorColumn    = { bg = none },
-          Folded         = { fg = colors.gray, bg = none },
-          FoldColumn     = { fg = colors.gray, bg = none },
+          Folded = { fg = colors.gray, bg = none },
+          FoldColumn = { fg = colors.gray, bg = none },
           -- Whitespace     = { fg = colors.darkgray },
 
-          StatusLine                  = { fg = colors.fg, bg = none },
-          StatusLineNC                = { fg = colors.gray, bg = none },
-          TabLine                     = { fg = colors.gray, bg = none },
-          TabLineSel                  = { fg = colors.fg, bold = true, bg = none },
-          TabLineFill                 = { bg = none },
+          StatusLine = { fg = colors.fg, bg = none },
+          StatusLineNC = { fg = colors.gray, bg = none },
+          TabLine = { fg = colors.gray, bg = none },
+          TabLineSel = { fg = colors.fg, bold = true, bg = none },
+          TabLineFill = { bg = none },
 
-          Pmenu          = { fg = colors.fg, bg = none },
-          PmenuSel       = { fg = colors.blue, bg = none, bold = true },
-          PmenuSbar      = { bg = none },
-          PmenuThumb     = { bg = colors.gray },
+          Pmenu = { fg = colors.fg, bg = none },
+          PmenuSel = { fg = colors.blue, bg = none, bold = true },
+          PmenuSbar = { bg = none },
+          PmenuThumb = { bg = colors.gray },
 
           -- Search         = { fg = colors.cyan, bg = none, underline = true },
           -- IncSearch      = { fg = colors.blue, bg = none, underline = true },
@@ -75,74 +77,74 @@ return {
           ---------------------------------------------------------------------
           -- Classic Syntax (shifted to green/blue)
           ---------------------------------------------------------------------
-          String         = { fg = colors.green },      -- was orange
-          Character      = { fg = colors.green },
-          Number         = { fg = colors.blue },       -- was purple
-          Float          = { fg = colors.blue },
-          Boolean        = { fg = colors.cyan },
-          Constant       = { fg = colors.cyan },
+          String = { fg = colors.green }, -- was orange
+          Character = { fg = colors.green },
+          Number = { fg = colors.blue }, -- was purple
+          Float = { fg = colors.blue },
+          Boolean = { fg = colors.cyan },
+          Constant = { fg = colors.cyan },
 
-          Type           = { fg = colors.green },      -- was magenta
-          Structure      = { fg = colors.blue },
-          StorageClass   = { fg = colors.cyan },
-          Typedef        = { fg = colors.green },
+          Type = { fg = colors.green }, -- was magenta
+          Structure = { fg = colors.blue },
+          StorageClass = { fg = colors.cyan },
+          Typedef = { fg = colors.green },
 
-          Operator       = { fg = colors.blue },
-          Keyword        = { fg = colors.cyan },       -- cooler keywords
-          Conditional    = { fg = colors.cyan },
-          Repeat         = { fg = colors.cyan },
+          Operator = { fg = colors.blue },
+          Keyword = { fg = colors.cyan }, -- cooler keywords
+          Conditional = { fg = colors.cyan },
+          Repeat = { fg = colors.cyan },
 
-          Identifier     = { fg = colors.blue },       -- was purple
-          Function       = { fg = colors.blue },
-          Delimiter      = { fg = colors.darkgreen },
-          Comment        = { fg = colors.gray, italic = false },
+          Identifier = { fg = colors.blue }, -- was purple
+          Function = { fg = colors.blue },
+          Delimiter = { fg = colors.darkgreen },
+          Comment = { fg = colors.gray, italic = false },
 
           ---------------------------------------------------------------------
           -- Treesitter (@ groups) - green/blue emphasis
           ---------------------------------------------------------------------
-          ["@variable"]                = { fg = colors.fg },
-          ["@variable.builtin"]       = { fg = colors.blue },
-          ["@constant"]               = { fg = colors.cyan },
-          ["@constant.builtin"]       = { fg = colors.cyan, bold = true },
-          ["@property"]               = { fg = colors.blue },
-          ["@field"]                  = { fg = colors.blue },
-          ["@parameter"]              = { fg = colors.green },
-          ["@namespace"]              = { fg = colors.blue },
+          ["@variable"] = { fg = colors.fg },
+          ["@variable.builtin"] = { fg = colors.blue },
+          ["@constant"] = { fg = colors.cyan },
+          ["@constant.builtin"] = { fg = colors.cyan, bold = true },
+          ["@property"] = { fg = colors.blue },
+          ["@field"] = { fg = colors.blue },
+          ["@parameter"] = { fg = colors.green },
+          ["@namespace"] = { fg = colors.blue },
 
-          ["@type"]                   = { fg = colors.green },
-          ["@type.builtin"]           = { fg = colors.green, bold = true },
-          ["@type.qualifier"]         = { fg = colors.cyan },
+          ["@type"] = { fg = colors.green },
+          ["@type.builtin"] = { fg = colors.green, bold = true },
+          ["@type.qualifier"] = { fg = colors.cyan },
 
-          ["@function"]               = { fg = colors.blue },
-          ["@function.method"]        = { fg = colors.blue },
-          ["@constructor"]            = { fg = colors.blue },
+          ["@function"] = { fg = colors.blue },
+          ["@function.method"] = { fg = colors.blue },
+          ["@constructor"] = { fg = colors.blue },
 
-          ["@keyword"]                = { fg = colors.cyan },
-          ["@keyword.return"]         = { fg = colors.cyan },
-          ["@keyword.function"]       = { fg = colors.cyan },
+          ["@keyword"] = { fg = colors.cyan },
+          ["@keyword.return"] = { fg = colors.cyan },
+          ["@keyword.function"] = { fg = colors.cyan },
 
-          ["@string"]                 = { fg = colors.green },
-          ["@string.escape"]          = { fg = colors.cyan },
-          ["@number"]                 = { fg = colors.blue },
-          ["@boolean"]                = { fg = colors.cyan },
+          ["@string"] = { fg = colors.green },
+          ["@string.escape"] = { fg = colors.cyan },
+          ["@number"] = { fg = colors.blue },
+          ["@boolean"] = { fg = colors.cyan },
 
           ---------------------------------------------------------------------
           -- LSP & Diagnostics
           ---------------------------------------------------------------------
-          DiagnosticError             = { fg = colors.red },
-          DiagnosticWarn              = { fg = colors.yellow },
-          DiagnosticInfo              = { fg = colors.blue },
-          DiagnosticHint              = { fg = colors.diag },
+          DiagnosticError = { fg = colors.red },
+          DiagnosticWarn = { fg = colors.yellow },
+          DiagnosticInfo = { fg = colors.blue },
+          DiagnosticHint = { fg = colors.diag },
 
-          DiagnosticSignError         = { fg = colors.red, bg = none },
-          DiagnosticSignWarn          = { fg = colors.yellow, bg = none },
-          DiagnosticSignInfo          = { fg = colors.blue, bg = none },
-          DiagnosticSignHint          = { fg = colors.diag, bg = none },
+          DiagnosticSignError = { fg = colors.red, bg = none },
+          DiagnosticSignWarn = { fg = colors.yellow, bg = none },
+          DiagnosticSignInfo = { fg = colors.blue, bg = none },
+          DiagnosticSignHint = { fg = colors.diag, bg = none },
 
-          DiagnosticUnderlineError    = { undercurl = true, sp = colors.red },
-          DiagnosticUnderlineWarn     = { undercurl = true, sp = colors.yellow },
-          DiagnosticUnderlineInfo     = { undercurl = true, sp = colors.blue },
-          DiagnosticUnderlineHint     = { undercurl = true, sp = colors.diag },
+          DiagnosticUnderlineError = { undercurl = true, sp = colors.red },
+          DiagnosticUnderlineWarn = { undercurl = true, sp = colors.yellow },
+          DiagnosticUnderlineInfo = { undercurl = true, sp = colors.blue },
+          DiagnosticUnderlineHint = { undercurl = true, sp = colors.diag },
 
           -- LspReferenceText            = { bg = none, underline = true },
           -- LspReferenceRead            = { bg = none, underline = true },
@@ -153,57 +155,57 @@ return {
           ---------------------------------------------------------------------
           -- Diff/Git (more green/blue)
           ---------------------------------------------------------------------
-          DiffAdd     = { fg = colors.green, bg = none },
-          DiffChange  = { fg = colors.blue,  bg = none },
-          DiffDelete  = { fg = colors.red,   bg = none },
-          DiffText    = { fg = colors.cyan,  bg = none },
+          DiffAdd = { fg = colors.green, bg = none },
+          DiffChange = { fg = colors.blue, bg = none },
+          DiffDelete = { fg = colors.red, bg = none },
+          DiffText = { fg = colors.cyan, bg = none },
 
           -- Gitsigns
-          GitSignsAdd    = { fg = colors.orange, bg = none },   -- was orange
-          GitSignsChange = { fg = colors.blue,  bg = none },   -- was green
-          GitSignsDelete = { fg = colors.red,   bg = none },
+          GitSignsAdd = { fg = colors.orange, bg = none }, -- was orange
+          GitSignsChange = { fg = colors.blue, bg = none }, -- was green
+          GitSignsDelete = { fg = colors.red, bg = none },
 
           ---------------------------------------------------------------------
           -- Neo-tree (lean into green/blue)
           ---------------------------------------------------------------------
-          NeoTreeNormal           = { fg = colors.purple, bg = none },
-          NeoTreeNormalNC         = { fg = colors.purple, bg = none },
-          NeoTreeDirectoryName    = { fg = colors.fg },
-          NeoTreeDirectoryIcon    = { fg = colors.cyan },
-          NeoTreeFileName         = { fg = colors.fg },
+          NeoTreeNormal = { fg = colors.purple, bg = none },
+          NeoTreeNormalNC = { fg = colors.purple, bg = none },
+          NeoTreeDirectoryName = { fg = colors.fg },
+          NeoTreeDirectoryIcon = { fg = colors.cyan },
+          NeoTreeFileName = { fg = colors.fg },
 
-          NeoTreeGitAdded         = { fg = colors.orange },      -- was orange
-          NeoTreeGitUnstaged      = { fg = colors.orange },
-          NeoTreeGitModified      = { fg = colors.blue },
-          NeoTreeGitDeleted       = { fg = colors.red },
-          NeoTreeGitRenamed       = { fg = colors.cyan },
-          NeoTreeGitUnmerged      = { fg = colors.red },
-          NeoTreeGitIgnored       = { fg = colors.gray },
-          NeoTreeGitUntracked     = { fg = colors.orange },
+          NeoTreeGitAdded = { fg = colors.orange }, -- was orange
+          NeoTreeGitUnstaged = { fg = colors.orange },
+          NeoTreeGitModified = { fg = colors.blue },
+          NeoTreeGitDeleted = { fg = colors.red },
+          NeoTreeGitRenamed = { fg = colors.cyan },
+          NeoTreeGitUnmerged = { fg = colors.red },
+          NeoTreeGitIgnored = { fg = colors.gray },
+          NeoTreeGitUntracked = { fg = colors.orange },
 
           ---------------------------------------------------------------------
           -- Telescope
           ---------------------------------------------------------------------
-          TelescopeNormal         = { fg = colors.fg, bg = none },
-          TelescopeBorder         = { fg = colors.gray, bg = none },
-          TelescopePromptNormal   = { fg = colors.fg, bg = none },
-          TelescopePromptBorder   = { fg = colors.gray, bg = none },
-          TelescopeTitle          = { fg = colors.blue, bold = true },
-          TelescopeSelection      = { fg = colors.green, bg = none, bold = true },
-          TelescopeMatching       = { fg = colors.cyan, bold = true },
+          TelescopeNormal = { fg = colors.fg, bg = none },
+          TelescopeBorder = { fg = colors.gray, bg = none },
+          TelescopePromptNormal = { fg = colors.fg, bg = none },
+          TelescopePromptBorder = { fg = colors.gray, bg = none },
+          TelescopeTitle = { fg = colors.blue, bold = true },
+          TelescopeSelection = { fg = colors.green, bg = none, bold = true },
+          TelescopeMatching = { fg = colors.cyan, bold = true },
 
           ---------------------------------------------------------------------
           -- WhichKey / CMP
           ---------------------------------------------------------------------
-          WhichKey          = { fg = colors.blue },
-          WhichKeyGroup     = { fg = colors.cyan },
-          WhichKeyDesc      = { fg = colors.fg },
+          WhichKey = { fg = colors.blue },
+          WhichKeyGroup = { fg = colors.cyan },
+          WhichKeyDesc = { fg = colors.fg },
           WhichKeySeparator = { fg = colors.gray },
 
-          CmpItemAbbr       = { fg = colors.fg },
-          CmpItemAbbrMatch  = { fg = colors.blue, bold = true },
-          CmpItemKind       = { fg = colors.green },
-          CmpBorder         = { fg = colors.gray, bg = none },
+          CmpItemAbbr = { fg = colors.fg },
+          CmpItemAbbrMatch = { fg = colors.blue, bold = true },
+          CmpItemKind = { fg = colors.green },
+          CmpBorder = { fg = colors.gray, bg = none },
 
           ---------------------------------------------------------------------
           -- Spelling

@@ -6,18 +6,34 @@ local sidebar_fts = {
   ["neo-tree"] = true,
   ["copilot-chat"] = true,
   ["neotest-summary"] = true,
+  ["harpoon"] = true,
   -- add others you use: ["trouble"] = true, ["lazy"] = true, etc.
 }
 
 local function is_sidebar_buf()
   local ft = vim.bo.filetype
-  if sidebar_fts[ft] then return true end
+  if sidebar_fts[ft] then
+    return true
+  end
+
   -- Any non-empty buftype (nofile, prompt, help, quickfix, terminal, etc.)
   local bt = vim.bo.buftype
-  if bt ~= "" and bt ~= "acwrite" then return true end
-  -- Fallback: match the display title used by neotest summary
+  if bt ~= "" and bt ~= "acwrite" then
+    return true
+  end
+
+  -- Fallbacks
   local title = vim.fn.expand("%:t")
-  if title == "Neotest Summary" then return true end
+  local bufname = vim.api.nvim_buf_get_name(0)
+
+  if title == "Neotest Summary" then
+    return true
+  end
+
+  if ft == "harpoon" or title:lower():match("harpoon") or bufname:lower():match("harpoon") then
+    return true
+  end
+
   return false
 end
 
@@ -42,8 +58,6 @@ return {
       globalstatus = true,
       section_separators = "",
       component_separators = "",
-      -- Optional: hide lualine entirely in these buffers
-      -- disabled_filetypes = { statusline = { "neotest-summary", "neo-tree", "copilot-chat" } },
     },
     sections = {
       lualine_a = {
@@ -70,8 +84,12 @@ return {
       lualine_z = {},
     },
     inactive_sections = {
-      lualine_a = {}, lualine_b = {}, lualine_c = {},
-      lualine_x = {}, lualine_y = {}, lualine_z = {},
+      lualine_a = {},
+      lualine_b = {},
+      lualine_c = {},
+      lualine_x = {},
+      lualine_y = {},
+      lualine_z = {},
     },
     extensions = {},
   },

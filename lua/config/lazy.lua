@@ -17,6 +17,8 @@ vim.opt.rtp:prepend(lazypath)
 --copilot enabled
 -- vim.g.ai_cmp = false
 -- vim.g.copilot_enabled = 0
+vim.opt.grepprg = "rg --vimgrep"
+vim.opt.grepformat = "%f:%l:%c:%m"
 
 -- layzgit config
 vim.g.lazygit_config = false
@@ -34,8 +36,8 @@ vim.filetype.add({ extension = { props = "xml" } })
 vim.filetype.add({ extension = { sln = "xml" } })
 vim.filetype.add({ extension = { nswag = "json" } })
 vim.filetype.add({ extension = { http = "http" } })
-vim.filetype.add({ extension = { razor = "razor" } })
-vim.filetype.add({ extension = { cshtml = "razor" } })
+-- vim.filetype.add({ extension = { razor = "razor" } })
+-- vim.filetype.add({ extension = { cshtml = "razor" } })
 
 
 require("lazy").setup({

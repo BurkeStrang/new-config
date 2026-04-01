@@ -1,0 +1,14 @@
+return {}
+-- return {
+--   "stevearc/conform.nvim",
+--   opts = {
+--     formatters_by_ft = {
+--       json  = { "prettierd", "prettier", "jq" },
+--       jsonc = { "prettierd", "prettier" }, -- requires prettier-plugin-jsonc to truly handle comments
+--     },
+--     formatters = {
+--       prettier = { prepend_args = { "--tab-width", "2", "--use-tabs", "false" } },
+--       jq = { prepend_args = { "--indent", "2" } },
+--     },
+--   },
+-- }

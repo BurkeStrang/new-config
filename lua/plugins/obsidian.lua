@@ -22,14 +22,14 @@ return {
     workspaces = {
       {
         name = "Burkes Notes",
-        path = "/mnt/c/Users/burke/iCloudDrive/iCloud~md~obsidian/Burkes Notes/Burkes Notes",
+        path = "/mnt/c/Users/bstrang/iCloudDrive/iCloud~md~obsidian/Burkes Notes/Burkes Notes",
       },
     },
     daily_notes = {
       folder = "Personal/Daily Planning", -- relative to vault root
       date_format = "%Y-%m-%d", -- adjust if Obsidian uses another format
       alias_format = "%B %-d, %Y", -- e.g. "September 6, 2025"
-      -- template = "Templates/Daily.md", -- optional, relative to vault
+      template = "Personal/Templates/Daily.md", -- optional, relative to vault
     },
     mappings = {}, -- keep this if you're using obsidian.nvim’s built-in mappings
   },
