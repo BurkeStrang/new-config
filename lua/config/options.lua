@@ -27,3 +27,5 @@ vim.opt.wrap = false
 vim.opt.spell = false
 vim.g.autoformat = false
 vim.opt.swapfile = false
+vim.opt.fixendofline = true
+vim.opt.endofline = true

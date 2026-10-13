@@ -27,12 +27,18 @@ return {
             desc = " Recent Files   ",
             action = ":lua Snacks.dashboard.pick('oldfiles')",
           },
-          -- {
-          --   icon = " ",
-          --   key = "d",
-          --   desc = " Recent Files   ",
-          --   action = ":lua Snacks.dashboard.pick('oldfiles','true')",
-          -- },
+          {
+            icon = " ",
+            key = "d",
+            desc = " Recent In Dir  ",
+            action = function()
+              Snacks.picker.recent({
+                filter = {
+                  cwd = true,
+                },
+              })
+            end,
+          },
           {
             icon = " ",
             key = "c",

@@ -99,7 +99,15 @@ return {
           },
         },
         stylua = { enabled = false },
-        vtsls = {},
+        angularls = { enabled = false },
+        vtsls = {
+          settings = {
+            typescript = {
+              -- just while in networks
+              -- tsdk = "App/node_modules/typescript/lib",
+            },
+          },
+        },
         lua_ls = {
           -- mason = false, -- set to false if you don't want this server to be installed with mason
           -- Use this to add any additional keymaps
