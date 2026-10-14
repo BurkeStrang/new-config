@@ -195,6 +195,30 @@ return {
           TelescopeMatching = { fg = colors.cyan, bold = true },
 
           ---------------------------------------------------------------------
+          -- Neotest (replaces its built-in neon defaults)
+          ---------------------------------------------------------------------
+          NeotestPassed = { fg = colors.cyan },
+          NeotestFailed = { fg = colors.red },
+          NeotestRunning = { fg = colors.yellow },
+          NeotestSkipped = { fg = colors.gray },
+          NeotestUnknown = { fg = colors.gray },
+          NeotestWatching = { fg = colors.yellow },
+
+          NeotestAdapterName = { fg = colors.blue, bold = true },
+          NeotestDir = { fg = colors.blue },
+          NeotestFile = { fg = colors.fg },
+          NeotestNamespace = { fg = colors.purple },
+          NeotestTest = { fg = colors.fg },
+          NeotestFocused = { fg = colors.cyan, bold = true },
+
+          NeotestIndent = { fg = colors.gray },
+          NeotestExpandMarker = { fg = colors.gray },
+          NeotestBorder = { fg = colors.gray, bg = none },
+          NeotestWinSelect = { fg = colors.cyan, bold = true },
+          NeotestMarked = { fg = colors.yellow, bold = true },
+          NeotestTarget = { fg = colors.red },
+
+          ---------------------------------------------------------------------
           -- WhichKey / CMP
           ---------------------------------------------------------------------
           WhichKey = { fg = colors.blue },

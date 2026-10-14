@@ -100,6 +100,26 @@ return {
         },
         stylua = { enabled = false },
         angularls = { enabled = false },
+        rust_analyzer = { enabled = false }, -- rustaceanvim starts rust-analyzer itself
+        -- python (the lang.python extra's server settings don't reach this table)
+        pyright = {
+          -- pyright doesn't look for a project venv on its own
+          before_init = function(_, config)
+            local python = config.root_dir and config.root_dir .. "/.venv/bin/python"
+            if python and vim.uv.fs_stat(python) then
+              -- edit in place: the client already holds a reference to this settings table
+              config.settings = config.settings or {}
+              config.settings.python = config.settings.python or {}
+              config.settings.python.pythonPath = python
+            end
+          end,
+        },
+        ruff = {
+          -- leave hover to pyright
+          on_attach = function(client)
+            client.server_capabilities.hoverProvider = false
+          end,
+        },
         vtsls = {
           settings = {
             typescript = {
